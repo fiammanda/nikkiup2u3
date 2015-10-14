@@ -78,10 +78,10 @@ a#loadInventory {
 	display: none;
 }
 .btn-group > .btn:first-child {
-	border-radius: 5px 0 0 5px;
+	border-radius: 4px 0 0 4px;
 }
 .btn-group .btn:last-child {
-	border-radius: 0 5px 5px 0;
+	border-radius: 0 4px 4px 0;
 }
 .btn {
 	position: relative;
@@ -100,7 +100,7 @@ select {
 	border: 1px solid #768;
 }
 select#theme  {
-	border-radius: 5px;
+	border-radius: 4px;
 }
 select.btn  {
 	height: 30px;

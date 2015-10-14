@@ -29,15 +29,38 @@ nav ul {
 }
 nav ul li {
 	display: inline-block;
+	margin: 4px 6px 0 0;
+}
+nav ul li a {
+	display: inline-block;
+	color: #768;
+	border: 1px solid #879;
+	border-radius: 4px;
+	padding: 0 3px;
+}
+nav ul li.active a {
+	background: #879;
+	color: #fff;
+	border: 1px solid #657;
+	border-radius: 4px;
+	padding: 0 3px;
 }
 select {
 	margin: 0;
 }
 input[type="text"] {
-	width: 1.5em !important;
+	width: 3em;
 }
 input#tag1, input#tag2 {
-	width: 5em !important;
+	width: 5em;
+}
+.tagContainer label:nth-child(2) {
+	border-radius: 0 4px 4px 0;
+	margin: 0 4px 0 0;
+}
+.tagContainer input:last-child {
+	border-radius: 4px !important;
+	margin: 0 0 0 6px;
 }
 .thead {
 	display: none;
@@ -58,12 +81,21 @@ input#tag1, input#tag2 {
 	display: inline-block;
 	padding: 0 3px;
 	color: #768;
-	border: 1px solid #768;
+	border: 1px solid #879;
 	border-radius: 4px;
 }
 .name {
 	margin: 0 6px 0 0;
 	float: left;
+}
+.nameChosen {
+	margin: 0 6px 0 0;
+	padding: 0 3px;
+	float: left;
+	background: #879;
+	color: #fff;
+	border: 1px solid #768;
+	border-radius: 4px;
 }
 .category {
 	margin: 0;
@@ -72,29 +104,29 @@ input#tag1, input#tag2 {
 	width: 1em;
 	height: 1.5em;
 	overflow: hidden;
-	border: 1px solid #657;
+	border: 1px solid #768;
 	border-right: 0;
 	border-radius: 4px 0 0 4px;
-	background: #768;
+	background: #879;
 	color: #fff;
 }
 .id {
 	margin: 0 6px 0 0;
 	padding: 0 3px 0 1px;
 	float: left;
-	border: 1px solid #657;
+	border: 1px solid #768;
 	border-left: 0;
 	border-radius: 0 4px 4px 0;
-	background: #768;
+	background: #879;
 	color: #fff;
 }
 .star {
 	margin: 0 6px 0 0;
 	padding: 0 3px;
 	float: left;
-	border: 1px solid #657;
+	border: 1px solid #768;
 	border-radius: 4px;
-	background: #768;
+	background: #879;
 	color: #fff;
 }
 .rating {
@@ -102,15 +134,14 @@ input#tag1, input#tag2 {
 	float: left;
 }
 .tag {
-	float: left;
-	margin: 0 4px 0 8px;
+	float: right;
 }
 .source {
 	clear: left;
 	padding: 0 3px;
-	border: 1px solid #657;
+	border: 1px solid #768;
 	border-radius: 4px;
-	background: #768;
+	background: #879;
 	color: #fff;
 }
 .item {
@@ -122,12 +153,12 @@ input#tag1, input#tag2 {
 	border-radius: 4px;
 }
 .own .item {
-	background: #67a;
-	border: 1px solid #569;
+	background: #78b;
+	border: 1px solid #67a;
 }
 .own .deps .item {
-	background: #a67;
-	border: 1px solid #956;
+	background: #b77;
+	border: 1px solid #a66;
 }
 .td[tooltip]:before {
 	display: inline-block;
@@ -138,6 +169,6 @@ input#tag1, input#tag2 {
 .void {
 	display: none;
 }
-#clothes .td:nth-child(6), #clothes .td:nth-child(7) {
+.td:nth-child(6), .td:nth-child(7) {
 	clear: left;
 }
