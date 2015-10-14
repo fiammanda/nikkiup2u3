@@ -70,6 +70,7 @@ input#tag1, input#tag2 {
 	border: 1px solid #769;
 	border-radius: 4px;
 	font-size: 90%;
+	transition: color 0.2s, background 0.2s;
 }
 .subcategory input:checked + label {
 	background: #769;
@@ -146,6 +147,7 @@ input#tag1, input#tag2 {
 	color: #fff;
 	border: 1px solid #666;
 	border-radius: 4px;
+	transition: background 0.2s;
 }
 .item:hover {
 	color: #fff;
