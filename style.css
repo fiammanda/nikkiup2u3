@@ -24,13 +24,11 @@ a[href]:hover {
 }
 h1 {
 	margin-bottom: 0;
-	font-weight: lighter;
 	font-family: "PingHei", "Microsoft Yahei";
 }
 h2 {
 	margin: 0 0 40px;
 	font-size: 14px;
-	font-weight: lighter;
 	font-family: "PingHei", "Microsoft Yahei";
 }
 section {
@@ -40,6 +38,10 @@ section {
 p {
 	margin: 0;
 	color: #555;
+}
+input[type="checkbox"] {
+	position: relative;
+	top: 1px;
 }
 textarea, input, select {
 	color: #555;
@@ -117,7 +119,7 @@ label.btn:hover, a.btn:hover {
 }
 label.checked, a.btn:active {
 	border-color: #657;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.25) inset;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4) inset;
 	z-index: 2;
 }
 input[type="text"] {
@@ -151,4 +153,7 @@ input#tag1, input#tag2 {
 }
 .C {
 	color: #38F;
+}
+.item {
+	position: relative;
 }

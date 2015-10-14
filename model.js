@@ -12,7 +12,7 @@ var global = {
 // Clothes: name, type, id, stars, simple, gorgeous, active, elegant, cute, mature, pure, sexy, cool, warm，extra
 //          0     1     2   3      4         5       6        7       8       9     10    11    12    13    14
 
-
+/*
 if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 	Clothes = function(csv) {
 		var theType = typeInfo[csv[1]];
@@ -111,15 +111,15 @@ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 					}
 					this.tmpScore += total;
 				}
-				/* TODO: uncomment this when F mechanism is fully understood
-				if (this.type.needFilter() && currentLevel.filter) {
-					currentLevel.filter.filter(this);
-				}*/
+//				TODO: uncomment this when F mechanism is fully understood
+//				if (this.type.needFilter() && currentLevel.filter) {
+//					currentLevel.filter.filter(this);
+//				}
 				this.tmpScore = Math.round(this.tmpScore);	 
 			}
 		};
 	}
-} else {
+} else {	*/
 	Clothes = function(csv) {
 		var theType = typeInfo[csv[1]];
 		return {
@@ -162,7 +162,7 @@ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 					for (var i in this.deps[sourceType]) {
 						var c = this.deps[sourceType][i];
 						ret += indent + '[' + sourceType + '][' + c.type.mainType + ']' + c.name + (c.own ? '' : '★缺') + '&#xA;';
-						ret += c.getDeps(indent + "　");
+						ret += c.getDeps(" ");
 					}
 				};
 				return ret;
@@ -223,7 +223,7 @@ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 			}
 		};
 	}
-}
+//}
 
 function ScoreByCategory() {
 	var initial = {};

@@ -1,5 +1,6 @@
 main {
 	margin: 1em;
+	line-height: 1.5;
 }
 header {
 	padding: 3em 0;
@@ -10,12 +11,26 @@ section {
 article {
 	margin: 2em 0;
 	padding: 0.25em 0 0.5em 0;
-	height: 6em;
-	overflow: hidden;
+	height: 5.5em;
+	overflow-y: scroll;
 	border-top: 2px solid #879; 
 	border-bottom: 3px double #879; 
 }
 p {
+	margin: 0;
+}
+nav {
+	clear: both;
+}
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+nav ul li {
+	display: inline-block;
+}
+select {
 	margin: 0;
 }
 .thead {
@@ -24,21 +39,24 @@ p {
 .tr {
 	clear: both;
 	padding: 0.5em 0;
+	text-align: right;
 }
 .td {
 	display: inline-block;
 }
-.td:nth-child(6) {
-	clear: left;
-}
 .score {
 	margin: 0 6px 0 0;
-	padding: 0 3px;
 	float: left;
+}
+.score a {
+	display: inline-block;
+	padding: 0 3px;
+	color: #768;
+	border: 1px solid #768;
 	border-radius: 4px;
-	background: #edf;
 }
 .name {
+	margin: 0 6px 0 0;
 	float: left;
 }
 .category {
@@ -48,40 +66,62 @@ p {
 	width: 1em;
 	height: 1.5em;
 	overflow: hidden;
+	border: 1px solid #657;
+	border-right: 0;
 	border-radius: 4px 0 0 4px;
-	background: #edf;
+	background: #768;
+	color: #fff;
 }
 .id {
 	margin: 0 6px 0 0;
-	padding: 0 3px;
+	padding: 0 3px 0 1px;
 	float: left;
+	border: 1px solid #657;
+	border-left: 0;
 	border-radius: 0 4px 4px 0;
-	background: #edf;
+	background: #768;
+	color: #fff;
 }
 .star {
 	margin: 0 6px 0 0;
 	padding: 0 3px;
 	float: left;
+	border: 1px solid #657;
 	border-radius: 4px;
-	background: #edf;
+	background: #768;
+	color: #fff;
 }
 .rating {
 	margin: 0 4px 0 0;
 	float: left;
 }
 .tag {
-	clear: left;
-	margin: 0 4px 0 0;
-	font-size: 80%;
-	float: right;
+	float: left;
+	margin: 0 4px 0 8px;
 }
 .source {
-	margin: 0 4px 0 0;
-	font-size: 80%;
-	float: right;
+	clear: left;
+	padding: 0 3px;
+	border: 1px solid #657;
+	border-radius: 4px;
+	background: #768;
+	color: #fff;
 }
 .item {
-	position: relative;
+	display: inline-block;
+	padding: 0 3px;
+	background: #777;
+	color: #fff;
+	border: 1px solid #666;
+	border-radius: 4px;
+}
+.own .item {
+	background: #67a;
+	border: 1px solid #569;
+}
+.own .deps .item {
+	background: #a67;
+	border: 1px solid #956;
 }
 .td[tooltip]:before {
 	display: inline-block;
@@ -89,15 +129,9 @@ p {
 	padding: 0 1px 0 0;
 	font-weight: normal;
 }
-.td a[tooltip]:after {
-	display: inline-block;
-	position: absolute;
-	top: 2em;
-	left: 0;
-	width: 20em;
-	content: attr(tooltip);
-	font-size: 80%;
-}
 .void {
 	display: none;
+}
+#clothes .td:nth-child(6), #clothes .td:nth-child(7) {
+	clear: left;
 }
