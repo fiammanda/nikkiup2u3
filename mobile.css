@@ -1,0 +1,103 @@
+main {
+	margin: 1em;
+}
+header {
+	padding: 3em 0;
+}
+section {
+	margin: 2em 0;
+}
+article {
+	margin: 2em 0;
+	padding: 0.25em 0 0.5em 0;
+	height: 6em;
+	overflow: hidden;
+	border-top: 2px solid #879; 
+	border-bottom: 3px double #879; 
+}
+p {
+	margin: 0;
+}
+.thead {
+	display: none;
+}
+.tr {
+	clear: both;
+	padding: 0.5em 0;
+}
+.td {
+	display: inline-block;
+}
+.td:nth-child(6) {
+	clear: left;
+}
+.score {
+	margin: 0 6px 0 0;
+	padding: 0 3px;
+	float: left;
+	border-radius: 4px;
+	background: #edf;
+}
+.name {
+	float: left;
+}
+.category {
+	margin: 0;
+	padding: 0 0 0 3px;
+	float: left;
+	width: 1em;
+	height: 1.5em;
+	overflow: hidden;
+	border-radius: 4px 0 0 4px;
+	background: #edf;
+}
+.id {
+	margin: 0 6px 0 0;
+	padding: 0 3px;
+	float: left;
+	border-radius: 0 4px 4px 0;
+	background: #edf;
+}
+.star {
+	margin: 0 6px 0 0;
+	padding: 0 3px;
+	float: left;
+	border-radius: 4px;
+	background: #edf;
+}
+.rating {
+	margin: 0 4px 0 0;
+	float: left;
+}
+.tag {
+	clear: left;
+	margin: 0 4px 0 0;
+	font-size: 80%;
+	float: right;
+}
+.source {
+	margin: 0 4px 0 0;
+	font-size: 80%;
+	float: right;
+}
+.item {
+	position: relative;
+}
+.td[tooltip]:before {
+	display: inline-block;
+	content: attr(tooltip);
+	padding: 0 1px 0 0;
+	font-weight: normal;
+}
+.td a[tooltip]:after {
+	display: inline-block;
+	position: absolute;
+	top: 2em;
+	left: 0;
+	width: 20em;
+	content: attr(tooltip);
+	font-size: 80%;
+}
+.void {
+	display: none;
+}

@@ -1,0 +1,154 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #333;
+	line-height: 1.5;
+	font-size: 14px;
+	font-family: "PingHei", "Lucida Sans Unicode", "Microsoft Yahei";
+}
+a {
+	text-decoration: none;
+	outline: none;
+	color: #333;
+	cursor: pointer;
+	transition: color 0.2s, border-color 0.2s, opacity 0.2s;
+}
+a:hover {
+	color: #659;
+}
+a[href] {
+	color: #659;
+}
+a[href]:hover {
+	color: #333;
+}
+h1 {
+	margin-bottom: 0;
+	font-weight: lighter;
+	font-family: "PingHei", "Microsoft Yahei";
+}
+h2 {
+	margin: 0 0 40px;
+	font-size: 14px;
+	font-weight: lighter;
+	font-family: "PingHei", "Microsoft Yahei";
+}
+section {
+	margin: 40px 0;
+	clear: both;
+}
+p {
+	margin: 0;
+	color: #555;
+}
+textarea, input, select {
+	color: #555;
+	border: 1px solid #768;
+	transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+	font-family: "PingHei", "Lucida Sans Unicode", "Microsoft Yahei";
+}
+textarea:hover, textarea:focus, input:hover, input:focus, select:hover {
+	color: #333;
+	border: 1px solid #657;
+	box-shadow: 0 0 5px rgba(100, 50, 200, 0.2) inset;
+}
+textarea#myClothes {
+	word-break: break-all;
+	width: 201px;
+	padding: 5px 8px;
+	height: 50px;
+	line-height: 1.5;
+	font-size: 12px;
+	font-family: "Lucida Sans Unicode", "Microsoft Yahei";
+}
+a#loadInventory {
+	height: 38px;
+	width: 26px;
+	padding: 11px 8px;
+	line-height: 1.5;
+	font-size: 13px;
+}
+.btn-group {
+	clear: both;
+	padding: 0.5em 0;
+}
+.btn-group input[type="radio"], .btn-group input[type="checkbox"] {
+	display: none;
+}
+.btn-group > .btn:first-child {
+	border-radius: 5px 0 0 5px;
+}
+.btn-group .btn:last-child {
+	border-radius: 0 5px 5px 0;
+}
+.btn {
+	position: relative;
+	float: left;
+	display: inline-block;
+	margin: 0 -1px 0 0;
+	padding: 7px 10px;
+	height: 1em;
+	line-height: 1;
+	border: 1px solid #768;
+	transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+select {
+	padding: 3px 5px;
+	height: 30px;
+	border: 1px solid #768;
+}
+select#theme  {
+	border-radius: 5px;
+}
+select.btn  {
+	height: 30px;
+	padding: 0 1px 0 2px;
+}
+label.btn, a.btn {
+	background: #879;
+	color: #fff;
+	cursor: pointer;
+	z-index: 0;
+}
+label.btn:hover, a.btn:hover {
+	background: #768;
+	border-color: #657;
+	z-index: 1;
+}
+label.checked, a.btn:active {
+	border-color: #657;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.25) inset;
+	z-index: 2;
+}
+input[type="text"] {
+	padding: 7px 5px;
+	width: 42px;
+	height: 14px;
+	line-height: 14px;
+	font-size: 13px;
+	font-family: "Lucida Sans Unicode", "Microsoft Yahei";
+	border: 1px solid #768;
+}
+input#tag1, input#tag2 {
+	width: 84px;
+	padding: 7px 10px;
+}
+.td {
+	vertical-align: middle;
+	transition: color 0.2s;
+}
+.SS {
+	font-weight: bold;
+}
+.S, .SS {
+	color: #FB3;
+}
+.A {
+	color: #F0A;
+}
+.B {
+	color: #A66;
+}
+.C {
+	color: #38F;
+}

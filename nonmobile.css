@@ -1,0 +1,274 @@
+main {
+	margin: 70px auto;
+	width: 1200px;
+}
+header {
+	padding: 28px 0;
+}
+article {
+	margin: 28px 0 -167px auto;
+	padding: 4px 7px;
+	height: 150px;
+	width: 360px;
+	font-size: 13px;
+	border: 1px dotted #768;
+	overflow-y: scroll;
+	cursor: default;
+}
+p {
+	padding: 0 0 0 62px;
+	text-indent: -62px;
+	color: #555;
+}
+span#inventoryCount {
+	font-size: 12px;
+}
+span.count {
+	background: #555;
+	border-radius: 8px;
+	padding: 0 4px;
+	font-size: 12px;
+	color: #fff;
+	vertical-align: bottom;
+}
+span#inventoryCount {
+	font-size: 12px;
+}
+
+
+.table {
+	display: table;
+	border-collapse:collapse;
+	line-height: 1.5;
+	text-align: center;
+	background: #fff;
+	cursor: default;
+}
+.tr {
+	display: table-row;
+	border-bottom: 1px solid #eee;
+	transition: border-color 0.2s;
+}
+.td {
+	display: table-cell;
+	padding: 4px;
+	white-space: nowrap;
+}
+.thead {
+	display: table-header-group;
+}
+.thead .td {
+	padding: 7px;
+}
+.thead .tr {
+	border-bottom: 2px solid #777;
+}
+.thead .nav {
+	display: none;
+	position: fixed;
+	top: 0;
+	cursor: pointer;
+	z-index: 10;
+	background: rgba(255, 255, 255, 0.8);
+	transition: background 0.2s;
+}
+.thead .nav:hover {
+	background: #fff;
+}
+.thead .fix {
+	display: block;
+}
+.tbody {
+	display: table-row-group;
+	border-bottom: 3px double #777;
+	font-size: 13px;
+}
+.tbody .name {
+	text-align: left;
+}
+.tbody .tr:hover {
+	border-bottom: 1px solid #999;
+}
+.score {
+	padding: 4px 7px;
+	width: 41px;
+}
+.name {
+	width: 109px;
+}
+.category {
+	width: 94px;
+}
+.tag {
+	width: 108px;
+}
+.source {
+	width: 139px;
+}
+.negative {
+	text-decoration: line-through;
+	color: #999;
+}
+#clothes {
+	margin: 0;
+	padding: 0 0 56px;
+	width: 1193px;
+	border: 1px solid #777;
+	border-top: 0;
+	border-radius: 0 0 5px 5px;
+}
+#clothes .table {
+	margin: 0 auto;
+}
+#clothes .tbody .tr:nth-child(2n+1) {
+	background: #f3f0f6;
+}
+#clothes .tbody .tr {
+	color: #777;
+}
+#clothes .tbody .tr.own {
+	color: #333;
+}
+#clothes .item {
+	padding: 0 0 0 4px;
+	display: inline-block;
+	border-left: 6px solid #ccc;
+	line-height: 1;
+	color: #777;
+}
+#clothes .item:hover {
+	border-color: #777;
+}
+#clothes .own .item {
+	color: #333;
+	border-left: 6px solid rgba(50, 100, 250, 0.5);
+}
+#clothes .own .item:hover {
+	border-color: rgba(50, 100, 250, 1);
+}
+#clothes .own .deps .item {
+	color: #333;
+	border-left: 6px solid rgba(250, 50, 50, 0.5);
+}
+#clothes .own .deps .item:hover {
+	border-color: rgba(250, 50, 50, 0.9);
+}
+#clothes .td [tooltip]:after {
+	margin: 0 0 0 5px;
+	padding: 5px 7px;
+	z-index: -1;
+	position: absolute;
+	content: attr(tooltip);
+	opacity: 0;
+	white-space: pre;
+	text-align: left;
+	line-height: 21px;
+	background: rgba(200, 225, 255, 0.8);
+	transition: opacity, 0.2s;
+}
+#clothes .td [tooltip]:hover:after {
+	z-index: 9;
+	opacity: 1;
+}
+#clothes .td.deps [tooltip]:after {
+	background: rgba(250, 205, 200, 0.8);
+}
+#shoppingCart {
+	margin: 49px 0;
+}
+#shoppingCart .score {
+	width: 43px;
+}
+#shoppingCart .rate {
+	width: 39px;
+}
+#shoppingCart .totalScore {
+	font-size: 13px;
+	letter-spacing: -1px;
+}
+#shoppingCart .td span {
+	display: block;
+}
+#shoppingCart .tr:nth-last-child(2) {
+	border-color: #777;
+}
+ul.tabs {
+	margin: 0 7px;
+	padding: 0 0 0 32px;
+	list-style: none;
+	height: 31px;
+	width: 1151px;
+	border-bottom: 1px solid #777;
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	position: relative;
+	border: 1px solid #fff;
+	border-bottom: none;
+}
+ul.tabs li a {
+	display: block;
+	text-align: center;
+	color: #333;
+	opacity: 0.6;
+}
+ul.tabs li a:hover {
+	opacity: 1;
+}	
+ul.tabs li.active {
+	background: #fff;
+	border: 1px solid #777;
+	border-bottom: 1px solid #fff;
+	border-radius: 5px 5px 0 0;
+}
+ul.tabs li.active a {
+	opacity: 1;
+}
+#category_container > div {
+	display: none;
+}
+#category_container div.active {
+	display: block;
+}
+.subcategories {
+	margin: -1px 0 0 0;
+	padding: 14px 67px 7px;
+	height: 46px;
+	width: 1059px;
+	border: 1px solid #777;
+	border-bottom: 0;
+	border-radius: 7px 7px 0 0;
+	vertical-align: middle;
+}
+.subcategory {
+	display: inline-block;
+	width: 110px;
+}
+.subcategory label {
+	color: #777;
+	transition: color 0.2s;
+}
+.subcategory input:checked + label {
+	color: #333;
+}
+.nosubcategory {
+	color: #777;
+}
+::section {
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
+::-moz-selection {
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}
+::-webkit-selection {
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+}

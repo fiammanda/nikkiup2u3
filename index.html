@@ -1,313 +1,208 @@
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>奇迹暖暖在线配装器</title>
-    <script type='text/javascript' charset="UTF-8" src='jquery.js'></script>
-    <script type='text/javascript' charset="UTF-8" src='jquery.floatThead.min.js'></script>
-    <script type='text/javascript' charset="UTF-8" src='wardrobe.js'></script>
-    <script type='text/javascript' charset="UTF-8" src='scoring.js'></script>
-    <script type='text/javascript' charset="UTF-8" src='levels.js'></script>
-    <script type='text/javascript' charset="UTF-8" src='model.js'></script>
-    <script type='text/javascript' charset="UTF-8" src='pattern.js'></script>
-    <script type='text/javascript' charset="UTF-8" src='nikki.js'></script>
-    <style>
-    table
-    {
-      font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-      font-size: 12px;
-      background: #fff;
-      margin: 10px 20px;
-      border-collapse: collapse;
-      text-align: center;
-      table-layout: fixed;
-    }
-    th
-    {
-      font-size: 14px;
-      font-weight: normal;
-      color: #039;
-      padding: 10px 8px;
-      border-bottom: 2px solid #6678b1;
-    }
-    th.score {
-      width: 55px;
-    }
-    th.name {
-      width: 100px;
-    }
-    th.category {
-      width: 110px;
-    }
-    th.top {
-      width: 75px;
-    }
-    td
-    {
-      color: #669;
-      padding: 4px 4px 4px 4px;
-    }
-    table.mainTable td.own.deps .button {
-      background-color: #fdd;
-    }
-    table.mainTable td.own .button
-    {
-      padding-left:20px;
-      background-position: 5px 8px;
-      background-repeat: no-repeat;
-      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAU0lEQVR42mNgoAHgZ2FjO8/MxjafaMUs7Oz/QZiQJhTFYAzkg2VAOqEcfgKK+SGKUQXlcSoGAQxJdIxqMw7r8ShmIOhmokKFCMVwTdCw5qdatAMAai8zEfxslWsAAAAASUVORK5CYII=);
-      background-color: #dfd;
-    }
-    .button {
-      position: relative;
-      overflow: visible;
-      display: inline-block;
-      padding: 0.5em 1em;
-      border: 1px solid #d4d4d4;
-      margin: 0;
-      text-decoration: none;
-      text-align: center;
-      text-shadow: 1px 1px 0 #fff;
-      color: #333;
-      white-space: nowrap;
-      cursor: pointer;
-      outline: none;
-      background-color: #ececec;
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
-      background-image: -moz-linear-gradient(#f4f4f4, #ececec);
-      background-image: -ms-linear-gradient(#f4f4f4, #ececec);
-      background-image: -o-linear-gradient(#f4f4f4, #ececec);
-      background-image: linear-gradient(#f4f4f4, #ececec);
-      -moz-background-clip: padding; /* for Firefox 3.6 */
-      background-clip: padding-box;
-      border-radius: 0.2em;
-      /* IE hacks */
-      zoom: 1;
-      *display: inline;
-    }
-    tbody tr:hover td
-    {
-      color: #009;
-      background: #eee;
-    }
-    td.S {
-      color: #FB3;
-    }
-    td.A {
-      color: #F0A;
-    }
-    td.B {
-      color: #A66;
-    }
-    td.C {
-      color: #38F;
-    }
-    td.negative {
-      text-decoration: line-through;
-    }
-    div.facet {
-      margin-left:10px;
-    }
-    div.announcement {
-      max-width: 800px;
-    }
-    div.weightContainer {
-      display: inline-block;
-    }
-    ul.tabs {
-    	margin: 0;
-    	padding: 0;
-    	list-style: none;
-    	height: 32px;
-    	border-bottom: 1px solid #999;
-    	border-left: 1px solid #999;
-    	width: 100%;
-    }
-    ul.tabs li {
-    	float: left;
-    	margin: 0;
-    	padding: 0;
-    	height: 31px;
-    	line-height: 31px;
-    	border: 1px solid #999;
-    	border-left: none;
-    	margin-bottom: -1px;
-    	background: #F0F0F0;
-    	overflow: hidden;
-    	position: relative;
-    }
-    ul.tabs li a {
-    	text-decoration: none;
-    	color: #000;
-    	display: block;
-    	font-size: 1.2em;
-    	padding: 0 10px;
-    	border: 1px solid #fff;
-    	outline: none;
-    }
-    ul.tabs li a:hover {
-    	background: #ccc;
-    }	
-    html ul.tabs li.active, html ul.tabs li.active a:hover  {
-    	background: #fff;
-    	border-bottom: 1px solid #fff;
-    }
-    #category_container div {
-    	display:none;
-    }
-    #category_container div.active {
-    	display:block;
-    }
-    [tooltip]:after {
-      margin-left: 5px;
-      position : absolute;
-      content : attr(tooltip);
-      opacity : 0;
-      z-index: 255;
-      white-space: pre;
-      text-align: left;
-      background-color: #bfb;
-    }
-    [tooltip]:hover:after {
-      opacity : 1;
-      padding: 10px;
-    }
-    td.deps [tooltip]:after {
-      background-color: #fbb;
-    }
-  </style>
-    
-  </head>
-  <body>
-    <div class='announcement'>
-      Nikki's wardrobe. By Ivan's workshop<br/>
-      服装数据来自jillhx@贴吧 20150930<br/>
-      设计图数据来自amy_翡翠@贴吧 1.4.5<br/>
-      Update 20151002:<br/>
-      <ul>
-        <li>衣柜数据更新到了jillhx的20150930版，共计：2637，占比94%</li>
-      </ul>
-      国庆将会出游三周，期间更新暂缓，但愿不要有太大动静的更新，不然。。。<br/>
-      衣服信息纠错请去<a href="http://tieba.baidu.com/p/3860789814">jillhx的新衣柜楼</a>汇报<br/>
-      功能错误或者有新需求请去<a href="http://tieba.baidu.com/p/3792563906">主贴</a>汇报<br/>
-      <strong>主贴不负责回答为何搭配会F的问题，如果你的得分明显偏小（只有估计值的1/10），那么原因通常可能是：<br/>
-        1.穿错了衣服，2.穿错了外套，3.既穿错了衣服又穿错了外套</strong><br/>
-    </div>
-    <hr/>
-    <div id='filtersTop'>
-      <form name="filter_form">
-        <div>
-          <input type="radio" name="mode" value="filtering" onClick="changeMode(true)" checked/> 筛选
-          <input type="radio" name="mode" value="ranking" onClick="changeMode(false)" /> 计分
-          <select id="theme" onChange="changeTheme()" style="display: none"></select>
-          <span id="tagInfo"></span>
-        </div>
-        <div class='facet'>
-          <div>
-            <input type="radio" name="simple" value="0" onClick="changeFilter()" /> 皆可
-            <input type="radio" name="simple" value="1" onClick="changeFilter()" /> 简约
-            <input type="radio" name="simple" value="-1" onClick="changeFilter()" /> 华丽
-            <div class='weightContainer' style="display: none" id = "simpleWeightContainer">
-            	&nbsp;&nbsp;权重 <input type="text" id="simpleWeight" name="simpleWeight" value="1" onChange="changeFilter()" />
-          	</div>
-          </div>
-          <div>
-            <input type="radio" name="cute" value="0" onClick="changeFilter()" /> 皆可
-            <input type="radio" name="cute" value="1" onClick="changeFilter()" /> 可爱
-            <input type="radio" name="cute" value="-1" onClick="changeFilter()" /> 成熟
-            <div class='weightContainer' style="display: none" id = "cuteWeightContainer">
-            	&nbsp;&nbsp;权重 <input type="text" id="cuteWeight" name="cuteWeight" value="1" onChange="changeFilter()" />
-            </div>
-          </div>
-          <div>
-            <input type="radio" name="active" value="0" onClick="changeFilter()" /> 皆可
-            <input type="radio" name="active" value="1" onClick="changeFilter()" /> 活泼
-            <input type="radio" name="active" value="-1" onClick="changeFilter()" /> 优雅
-            <div class='weightContainer' style="display: none" id = "activeWeightContainer">
-              &nbsp;&nbsp;权重 <input type="text" id="activeWeight" name="activeWeight" value="1" onChange="changeFilter()" />
-            </div>
-          </div>
-          <div>
-            <input type="radio" name="pure" value="0" onClick="changeFilter()" /> 皆可
-            <input type="radio" name="pure" value="1" onClick="changeFilter()" /> 清纯
-            <input type="radio" name="pure" value="-1" onClick="changeFilter()" /> 性感
-            <div class='weightContainer' style="display: none" id = "pureWeightContainer">
-              &nbsp;&nbsp;权重 <input type="text" id="pureWeight" name="pureWeight" value="1" onChange="changeFilter()" />
-            </div>
-          </div>
-          <div>
-            <input type="radio" name="cool" value="0" onClick="changeFilter()" /> 皆可
-            <input type="radio" name="cool" value="1" onClick="changeFilter()" /> 清凉
-            <input type="radio" name="cool" value="-1" onClick="changeFilter()" /> 保暖
-            <div class='weightContainer' style="display: none" id = "coolWeightContainer">
-              &nbsp;&nbsp;权重 <input type="text" id="coolWeight" name="coolWeight" value="1" onChange="changeFilter()" />
-            </div>
-          </div>
-          <div id='tagFilter'>
-            Tag1
-            <input type="text" id="tag1" name="tag1" onChange="changeFilter()" />
-            <div class='tagContainer weightContainer' style="display: none" id = "tag1Container">
-              <input type="radio" name="tag1method" value="add" onClick="changeFilter()" checked/> 加分
-              <input type="radio" name="tag1method" value="replace" onClick="changeFilter()" /> 替换
-              <select id="tag1base" onChange="changeFilter()">
-                <option>SS</option>
-                <option>S</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-              </select>
-              &times;
-              <input type="text" id="tag1weight" name="tag1weight" value="1" onChange="changeFilter()" />
-            </div>
-            <br/>
-            Tag2
-            <input type="text" id="tag2" name="tag2" onChange="changeFilter()" />
-            <div class='tagContainer weightContainer' style="display: none" id = "tag2Container">
-              <input type="radio" name="tag2method" value="add" onClick="changeFilter()" checked/> 加分
-              <input type="radio" name="tag2method" value="replace" onClick="changeFilter()" /> 替换
-              <select id="tag2base" onChange="changeFilter()">
-                <option>SS</option>
-                <option>S</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-              </select>
-              &times;
-              <input type="text" id="tag2weight" name="tag2weight" value="1" onChange="changeFilter()" />
-            </div>
-          </div>
-        </div>
-        <div>
-          <input type="checkbox" name="inventory" value="own" onClick="onChangeUiFilter()" checked />拥有
-          <span id='inventoryCount'> </span>
-          <input type="checkbox" name="inventory" value="missing" onClick="onChangeUiFilter()" checked /> 没有
-        </div>
-      </form>
-    </div>
-    <hr>
-    <div id='shoppingCartContainer'>
-      已选择的衣服 <input type="checkbox" id="accessoriesHelper" checked />自动选择饰品 <button onclick="clearShoppingCart()">清空购物车</button>
-      <div id='shoppingCart'>
-      </div>
-    </div>
-    <hr>
-    <div id='category_container'> 
-    </div>
-    <div id = "clothes"></div>
-    <hr>
-    导入批量衣服，请先选择要导入的类别，然后在文本框内输入编号，用空格、逗号或者换行隔开。不知道编号在哪儿的请点<a href="http://tieba.baidu.com/p/3808711082" target="_blank">这里</a>
-    <div id = "import">
-      <select id="importCate" onChange="clearImport()"></select> <br/>
-      <textarea id="importData" rows=5 style="width:600px"></textarea>
-      <button onClick="doImport()">导入</button>
-    </div>
+<!DOCTYPE HTML>
+<html lang="zh">
 
-    <hr>
-    <p>我拥有的服装 （复制衣橱文本框内容以备份衣橱）</p>
-    <textarea id="myClothes" rows=10 style="width:600px"></textarea>
-    <br/>
-    <button onClick="loadCustomInventory()">Update inventory</button>
-    <br/>
-    <hr>
-    <div id = 'log'></div>
-  </body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Nikki's Wardrobe</title>
+		<link href="style.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="nonmobile.css" rel="stylesheet" type="text/css" media="(min-width: 1025px)" />
+		<link href="mobile.css" rel="stylesheet" type="text/css" media="only screen and (max-width: 1024px)" />
+		<script type="text/javascript" charset="UTF-8" src="jquery.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="wardrobe.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="scoring.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="model.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="level.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="pattern.js"></script>
+		<script type="text/javascript" charset="UTF-8" src="nikki.js"></script>
+	</head>
+
+	<body>
+	<main>
+
+		<header>
+			<h1>Nikki's Wardrobe</h1>
+			<h2><a href="http://weibo.com/fiammanda" target="_blank">Fiammanda</a>'s Version for learning and self-use, Modified from <a href="http://ivangift.github.io/nikkiup2u3/" target="_blank">Ivan</a> &amp; <a href="http://seal100x.github.io/nikkiup2u3/" target="_blank">Seal100x</a></h2>
+			<article id="update">
+				<p>15.10.14 更新关卡至10-7，增加少量衣物</p>
+				<p>15.10.13 改造表格语句，修改分类顺序，修复表头浮动</p>
+				<p>15.10.12 增加属性下拉选择（部分浏览器适用）</p>
+				<p>15.10.11 增加夜魄千魅设计图数据（饰品708-713子类别待定），开始修改其他设计图数据，开始改造移动端样式</p>
+			</article>
+			<div class="btn-group">
+				<textarea id="myClothes" class="btn" onclick="this.focus(); this.select()"></textarea>
+				<a id="loadInventory" class="btn" onClick="loadCustomInventory()">更新衣柜</a>
+			</div>
+		</header>
+
+		<section>
+			<form id="filter">
+				<div>
+					<input type="radio" name="mode" value="ranking" onClick="changeMode(false)" style="display: none" checked />
+					<select id="theme" onChange="changeTheme()">
+						<option value="default">清空标准</option>
+						<option value="custom">自定义关卡</option>
+					</select>
+					<span id="tagInfo"></span>
+				</div>
+				<div id="styleFilter">
+					<div class="btn-group">
+						<label class="btn">
+							<input type="radio" name="simple" value="0" onClick="changeFilter()" />皆可
+						</label>
+						<label class="btn">
+							<input type="radio" name="simple" value="1" onClick="changeFilter()" />简约
+						</label>
+						<label class="btn">
+							<input type="radio" name="simple" value="-1" onClick="changeFilter()" />华丽
+						</label>
+						<input type="text" id="simpleWeight" name="simpleWeight" value="1" onChange="changeFilter()" placeholder="权重" class="btn" />
+					</div>
+					<div class="btn-group">
+						<label class="btn">
+							<input type="radio" name="active" value="0" onClick="changeFilter()" />皆可
+						</label>
+						<label class="btn">
+							<input type="radio" name="active" value="1" onClick="changeFilter()" />活泼
+						</label>
+						<label class="btn">
+							<input type="radio" name="active" value="-1" onClick="changeFilter()" />优雅
+						</label>
+							<input type="text" id="activeWeight" name="activeWeight" value="1" onChange="changeFilter()" class="btn" />
+					</div>
+					<div class="btn-group">
+						<label class="btn">
+							<input type="radio" name="cute" value="0" onClick="changeFilter()" />皆可
+						</label>
+						<label class="btn">
+							<input type="radio" name="cute" value="1" onClick="changeFilter()" />可爱
+						</label>
+						<label class="btn">
+							<input type="radio" name="cute" value="-1" onClick="changeFilter()" />成熟
+						</label>
+						<input type="text" id="cuteWeight" name="cuteWeight" value="1" onChange="changeFilter()" class="btn" />
+					</div>
+					<div class="btn-group">
+						<label class="btn">
+							<input type="radio" name="pure" value="0" onClick="changeFilter()" />皆可
+						</label>
+						<label class="btn">
+							<input type="radio" name="pure" value="1" onClick="changeFilter()" />清纯
+						</label>
+						<label class="btn">
+							<input type="radio" name="pure" value="-1" onClick="changeFilter()" />性感
+						</label>
+						<input type="text" id="pureWeight" name="pureWeight" value="1" onChange="changeFilter()" class="btn" />
+					</div>
+					<div class="btn-group">
+						<label class="btn">
+							<input type="radio" name="cool" value="0" onClick="changeFilter()" />皆可
+						</label>
+						<label class="btn">
+							<input type="radio" name="cool" value="1" onClick="changeFilter()" />清凉
+						</label>
+						<label class="btn">
+							<input type="radio" name="cool" value="-1" onClick="changeFilter()" />保暖
+						</label>
+						<input type="text" id="coolWeight" name="coolWeight" value="1" onChange="changeFilter()" class="btn" />
+					</div>
+				</div>
+				<div id="tagFilter">
+					<div class="btn-group">
+						<input type="text" id="tag1" name="tag1" list="taglist" onChange="changeFilter()" class="btn" />
+						<div class="tagContainer weightContainer" id="tag1Container">
+							<label class="btn checked">
+								<input type="radio" name="tag1method" value="add" onClick="changeFilter()" checked/>加分
+							</label>
+							<label class="btn">
+								<input type="radio" name="tag1method" value="replace" onClick="changeFilter()" />替换
+							</label>
+							<select id="tag1base" onChange="changeFilter()" class="btn">
+								<option>SS</option><option>S</option><option>A</option><option>B</option><option>C</option>
+							</select>
+							<input type="text" id="tag1weight" name="tag1weight" value="1" onChange="changeFilter()" class="btn" />
+						</div>
+					</div>
+					<div class="btn-group">
+						<input type="text" id="tag2" name="tag2" list="taglist" onChange="changeFilter()" class="btn" />
+						<div class="tagContainer weightContainer" id="tag2Container">
+							<label class="btn checked">
+								<input type="radio" name="tag2method" value="add" onClick="changeFilter()" checked/>加分
+							</label>
+							<label class="btn">					
+								<input type="radio" name="tag2method" value="replace" onClick="changeFilter()" />替换
+							</label>
+							<select id="tag2base" onChange="changeFilter()" class="btn">
+								<option>SS</option><option>S</option><option>A</option><option>B</option><option>C</option>
+							</select>
+							<input type="text" id="tag2weight" name="tag2weight" value="1" onChange="changeFilter()" class="btn" />
+						</div>
+					</div>
+				</div>
+				<div id="ownFilter" class="btn-group">
+					<label class="btn checked">
+						<input type="checkbox" name="inventory" value="own" onClick="onChangeUiFilter()" checked />拥有
+						<span id="inventoryCount"></span>
+					</label>
+					<label class="btn checked">					
+						 <input type="checkbox" name="inventory" value="missing" onClick="onChangeUiFilter()" checked />没有
+					</label>
+					<a id="clearCart" class="btn" onclick="clearShoppingCart()">清空自动选择</a>
+				</div>
+				<datalist id="taglist">
+					<option value="波西米亚" />
+					<option value="大小姐" />
+					<option value="冬装" />
+					<option value="防晒" />
+					<option value="哥特风" />
+					<option value="海军风" />
+					<option value="和风" />
+					<option value="婚纱" />
+					<option value="居家服" />
+					<option value="军装" />
+					<option value="洛丽塔" />
+					<option value="民国服饰" />
+					<option value="民族风" />
+					<option value="沐浴" />
+					<option value="牛仔布" />
+					<option value="女仆装" />
+					<option value="女神系" />
+					<option value="OL" />
+					<option value="欧式古典" />
+					<option value="POP" />
+					<option value="旗袍" />
+					<option value="森女系列" />
+					<option value="睡衣" />
+					<option value="碎花" />
+					<option value="童话系" />
+					<option value="兔女郎" />
+					<option value="晚礼服" />
+					<option value="围裙" />
+					<option value="未来系" />
+					<option value="舞者" />
+					<option value="侠客联盟" />
+					<option value="小动物" />
+					<option value="学院系" />
+					<option value="摇滚风" />
+					<option value="医务使者" />
+					<option value="印度服饰" />
+					<option value="英伦" />
+					<option value="雨季装备" />
+					<option value="原宿风" />
+					<option value="运动系" />
+					<option value="中性风" />
+					<option value="中式古典" />
+					<option value="中式现代" />
+				</datalist>
+			</form>
+		</section>
+
+		<section id="shoppingCart"></section>
+
+		<nav id="category_container"></nav>
+		<section id="clothes"></section>
+	
+	</main>
+	</body>
+
 </html>
