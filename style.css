@@ -25,6 +25,7 @@ a[href]:hover {
 h1 {
 	margin-bottom: 0;
 	font-family: "PingHei", "Microsoft Yahei";
+	font-weight: lighter;
 }
 h2 {
 	margin: 0 0 40px;
@@ -95,6 +96,7 @@ a#loadInventory {
 	transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 select {
+	margin: 0; 
 	padding: 3px 5px;
 	height: 30px;
 	border: 1px solid #768;
@@ -104,7 +106,7 @@ select#theme  {
 }
 select.btn  {
 	height: 30px;
-	padding: 0 1px 0 2px;
+	padding: 0 0 0 1px;
 }
 label.btn, a.btn {
 	background: #879;
@@ -118,7 +120,7 @@ label.btn:hover, a.btn:hover {
 	z-index: 1;
 }
 label.checked, a.btn:active {
-	border-color: #657;
+	border-color: #546;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4) inset;
 	z-index: 2;
 }
@@ -140,16 +142,6 @@ input#tag1, input#tag2 {
 }
 #category_container div.active {
 	display: block;
-}
-.subcategory label {
-	color: #777;
-	transition: color 0.2s;
-}
-.subcategory input:checked + label {
-	color: #333;
-}
-.nosubcategory {
-	color: #777;
 }
 .td {
 	vertical-align: middle;

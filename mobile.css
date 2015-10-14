@@ -44,12 +44,9 @@ nav ul li a {
 nav ul li.active a {
 	background: #769;
 	color: #fff;
-	border: 1px solid #657;
+	border: 1px solid #658;
 	border-radius: 4px;
 	padding: 0 3px;
-}
-select {
-	margin: 0;
 }
 input[type="text"] {
 	width: 3em;
@@ -63,13 +60,29 @@ input#tag1, input#tag2 {
 }
 .tagContainer input:last-child {
 	border-radius: 4px !important;
-	margin: 0 0 0 4px;
+	margin: 0 0 0 5px;
 }
 .subcategories {
-	font-size: 80%;
 }
-.subcategories input {
-	margin-left: 0;
+.subcategory input {
+	display: none;
+}
+.subcategory label {
+	display: inline-block;
+	margin: 0 3px 3px 0;
+	padding: 0 3px;
+	color: #658;
+	border: 1px solid #769;
+	border-radius: 4px;
+	font-size: 90%;
+}
+.subcategory input:checked + label {
+	background: #769;
+	border: 1px solid #658;
+	color: #fff;
+}
+.nosubcategory {
+	display: none;
 }
 .thead {
 	display: none;
@@ -97,7 +110,7 @@ input#tag1, input#tag2 {
 	margin: 0 6px 0 0;
 	float: left;
 }
-.nameChosen {
+.nameChosen, .id, .star {
 	margin: 0 6px 0 0;
 	padding: 0 3px;
 	float: left;
@@ -107,36 +120,9 @@ input#tag1, input#tag2 {
 	border-radius: 4px;
 }
 .category {
-	margin: 0;
-	padding: 0 0 0 3px;
-	float: left;
-	width: 1em;
-	height: 1.5em;
-	overflow: hidden;
-	border: 1px solid #658;
-	border-right: 0;
-	border-radius: 4px 0 0 4px;
-	background: #769;
-	color: #fff;
-}
-.id {
-	margin: 0 6px 0 0;
-	padding: 0 3px 0 1px;
-	float: left;
-	border: 1px solid #658;
-	border-left: 0;
-	border-radius: 0 4px 4px 0;
-	background: #769;
-	color: #fff;
+	display: none;
 }
 .star {
-	margin: 0 6px 0 0;
-	padding: 0 3px;
-	float: left;
-	border: 1px solid #658;
-	border-radius: 4px;
-	background: #769;
-	color: #fff;
 }
 .rating {
 	margin: 0 4px 0 0;
@@ -179,9 +165,19 @@ input#tag1, input#tag2 {
 	padding: 0 1px 0 0;
 	font-weight: normal;
 }
-.void {
+.void, .totalScore {
 	display: none;
 }
-.td:nth-child(6), .td:nth-child(7) {
+#clothes .td:nth-child(6), #clothes .td:nth-child(7) {
 	clear: left;
+}
+#shoppingCart {
+	padding: 2em 0 3em;
+}
+#shoppingCart .id, #shoppingCart .star, #shoppingCart .source {
+	display: none;
+}
+#shoppingCart .rating, #shoppingCart .tag {
+	float: none;
+	font-size: 90%;
 }

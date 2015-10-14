@@ -12,218 +12,109 @@ var global = {
 // Clothes: name, type, id, stars, simple, gorgeous, active, elegant, cute, mature, pure, sexy, cool, warm，extra
 //          0     1     2   3      4         5       6        7       8       9     10    11    12    13    14
 
-/*
-if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
-	Clothes = function(csv) {
-		var theType = typeInfo[csv[1]];
-		return {
-			own: false,
-			name: csv[0],
-			type: theType,
-			id: csv[2],
-			stars: csv[3],
-			simple: realRating(csv[4], csv[5], theType),
-			active: realRating(csv[6], csv[7], theType),
-			cute: realRating(csv[8], csv[9], theType),
-			pure: realRating(csv[10], csv[11], theType),
-			cool: realRating(csv[12], csv[13], theType),
-			tags: csv[14].split(' '),
-			source: csv[15],
-			deps: {},
-			toCsv: function() {
-				name = this.name;
-				type = this.type;
-				id = this.id;
-				stars = this.stars;
-				simple = this.simple;
-				active = this.active;
-				cute = this.cute;
-				pure = this.pure;
-				cool = this.cool;
-				extra = this.tags.join(' ');
-				source = this.source;
-				return [type.type, id, stars, simple[0], simple[1], active[0], active[1], cute[0], cute[1], pure[0], pure[1], cool[0], cool[1], extra, source];
-			},
-			addDep: function(sourceType, c) {
-				if (!this.deps[sourceType]) {
-					this.deps[sourceType] = [];
-				}
-				this.deps[sourceType].push(c);
-			},
-			getDeps: function(indent) {
-				var ret = "";
-				for (var sourceType in this.deps) {
-					for (var i in this.deps[sourceType]) {
-						var c = this.deps[sourceType][i];
-						if ( c.own == false ) {
-							ret += c.name + '　';
-							ret += c.getDeps();
-						}
-					}
-				};
-				return ret;
-			},
-			calc: function(filters) {
-				var s = 0;
-				var self = this;
-				this.tmpScoreByCategory = ScoreByCategory();
-				this.bonusByCategory = ScoreByCategory();
-				for (var i in FEATURES) {
-					var f = FEATURES[i]; 
-					if (filters[f]) {
-						var sub = filters[f] * self[f][2];
-						if (filters[f] > 0) {
-							if (sub > 0) {
-								this.tmpScoreByCategory.record(f, sub, 0); // matched with major
-							} else {
-								this.tmpScoreByCategory.record(f, 0, sub); // mismatch with minor
-							}
-						} else {
-							if (sub > 0) {
-								this.tmpScoreByCategory.record(f, 0, sub); // matched with minor
-							} else {
-								this.tmpScoreByCategory.record(f, sub, 0); // mismatch with major
-							}
-							
-						}
-						if (sub > 0) {
-							s += sub;
-						}
-					}
-				}
-
-				this.tmpScore = Math.round(s);
-				if (filters.bonus) {
-					var total = 0;
-					for (var i in filters.bonus) {
-						var bonus = filters.bonus[i];
-						var resultlist = bonus.filter(this);
-						var result = resultlist[0];
-						if (result > 0) {
-							// result > 0 means match
-							this.bonusByCategory.addRaw(filters, resultlist[1]);
-							total += result;
-							if (bonus.replace) {
-								this.tmpScore /= 10;
-								this.tmpScoreByCategory.f();
-							}
-						}
-					}
-					this.tmpScore += total;
-				}
-//				TODO: uncomment this when F mechanism is fully understood
-//				if (this.type.needFilter() && currentLevel.filter) {
-//					currentLevel.filter.filter(this);
-//				}
-				this.tmpScore = Math.round(this.tmpScore);	 
+Clothes = function(csv) {
+	var theType = typeInfo[csv[1]];
+	return {
+		own: false,
+		name: csv[0],
+		type: theType,
+		id: csv[2],
+		stars: csv[3],
+		simple: realRating(csv[4], csv[5], theType),
+		active: realRating(csv[6], csv[7], theType),
+		cute: realRating(csv[8], csv[9], theType),
+		pure: realRating(csv[10], csv[11], theType),
+		cool: realRating(csv[12], csv[13], theType),
+		tags: csv[14].split(' '),
+		source: csv[15],
+		deps: {},
+		toCsv: function() {
+			name = this.name;
+			type = this.type;
+			id = this.id;
+			stars = this.stars;
+			simple = this.simple;
+			cute = this.cute;
+			active = this.active;
+			pure = this.pure;
+			cool = this.cool;
+			extra = this.tags.join(' ');
+			source = this.source;
+			return [type.type, id, stars, simple[0], simple[1], active[0], active[1], cute[0], cute[1], pure[0], pure[1], cool[0], cool[1], extra, source];
+		},
+		addDep: function(sourceType, c) {
+			if (!this.deps[sourceType]) {
+				this.deps[sourceType] = [];
 			}
-		};
-	}
-} else {	*/
-	Clothes = function(csv) {
-		var theType = typeInfo[csv[1]];
-		return {
-			own: false,
-			name: csv[0],
-			type: theType,
-			id: csv[2],
-			stars: csv[3],
-			simple: realRating(csv[4], csv[5], theType),
-			active: realRating(csv[6], csv[7], theType),
-			cute: realRating(csv[8], csv[9], theType),
-			pure: realRating(csv[10], csv[11], theType),
-			cool: realRating(csv[12], csv[13], theType),
-			tags: csv[14].split(' '),
-			source: csv[15],
-			deps: {},
-			toCsv: function() {
-				name = this.name;
-				type = this.type;
-				id = this.id;
-				stars = this.stars;
-				simple = this.simple;
-				cute = this.cute;
-				active = this.active;
-				pure = this.pure;
-				cool = this.cool;
-				extra = this.tags.join(' ');
-				source = this.source;
-				return [type.type, id, stars, simple[0], simple[1], active[0], active[1], cute[0], cute[1], pure[0], pure[1], cool[0], cool[1], extra, source];
-			},
-			addDep: function(sourceType, c) {
-				if (!this.deps[sourceType]) {
-					this.deps[sourceType] = [];
+			this.deps[sourceType].push(c);
+		},
+		getDeps: function(indent) {
+			var ret = "";
+			for (var sourceType in this.deps) {
+				for (var i in this.deps[sourceType]) {
+					var c = this.deps[sourceType][i];
+					ret += indent + '[' + sourceType + '][' + c.type.mainType + ']' + c.name + (c.own ? '' : '★缺') + '&#xA;';
+					ret += c.getDeps("　");
 				}
-				this.deps[sourceType].push(c);
-			},
-			getDeps: function(indent) {
-				var ret = "";
-				for (var sourceType in this.deps) {
-					for (var i in this.deps[sourceType]) {
-						var c = this.deps[sourceType][i];
-						ret += indent + '[' + sourceType + '][' + c.type.mainType + ']' + c.name + (c.own ? '' : '★缺') + '&#xA;';
-						ret += c.getDeps(" ");
-					}
-				};
-				return ret;
-			},
-			calc: function(filters) {
-				var s = 0;
-				var self = this;
-				this.tmpScoreByCategory = ScoreByCategory();
-				this.bonusByCategory = ScoreByCategory();
-				for (var i in FEATURES) {
-					var f = FEATURES[i]; 
-					if (filters[f]) {
-						var sub = filters[f] * self[f][2];
-						if (filters[f] > 0) {
-							if (sub > 0) {
-								this.tmpScoreByCategory.record(f, sub, 0); // matched with major
-							} else {
-								this.tmpScoreByCategory.record(f, 0, sub); // mismatch with minor
-							}
-						} else {
-							if (sub > 0) {
-								this.tmpScoreByCategory.record(f, 0, sub); // matched with minor
-							} else {
-								this.tmpScoreByCategory.record(f, sub, 0); // mismatch with major
-							}
-							
-						}
+			};
+			return ret;
+		},
+		calc: function(filters) {
+			var s = 0;
+			var self = this;
+			this.tmpScoreByCategory = ScoreByCategory();
+			this.bonusByCategory = ScoreByCategory();
+			for (var i in FEATURES) {
+				var f = FEATURES[i]; 
+				if (filters[f]) {
+					var sub = filters[f] * self[f][2];
+					if (filters[f] > 0) {
 						if (sub > 0) {
-							s += sub;
+							this.tmpScoreByCategory.record(f, sub, 0); // matched with major
+						} else {
+							this.tmpScoreByCategory.record(f, 0, sub); // mismatch with minor
 						}
+					} else {
+						if (sub > 0) {
+							this.tmpScoreByCategory.record(f, 0, sub); // matched with minor
+						} else {
+							this.tmpScoreByCategory.record(f, sub, 0); // mismatch with major
+						}
+						
+					}
+					if (sub > 0) {
+						s += sub;
 					}
 				}
-
-				this.tmpScore = Math.round(s);
-				if (filters.bonus) {
-					var total = 0;
-					for (var i in filters.bonus) {
-						var bonus = filters.bonus[i];
-						var resultlist = bonus.filter(this);
-						var result = resultlist[0];
-						if (result > 0) {
-							// result > 0 means match
-							this.bonusByCategory.addRaw(filters, resultlist[1]);
-							total += result;
-							if (bonus.replace) {
-								this.tmpScore /= 10;
-								this.tmpScoreByCategory.f();
-							}
-						}
-					}
-					this.tmpScore += total;
-				}
-				/* TODO: uncomment this when F mechanism is fully understood
-				if (this.type.needFilter() && currentLevel.filter) {
-					currentLevel.filter.filter(this);
-				}*/
-				this.tmpScore = Math.round(this.tmpScore);	 
 			}
-		};
-	}
-//}
+
+			this.tmpScore = Math.round(s);
+			if (filters.bonus) {
+				var total = 0;
+				for (var i in filters.bonus) {
+					var bonus = filters.bonus[i];
+					var resultlist = bonus.filter(this);
+					var result = resultlist[0];
+					if (result > 0) {
+						// result > 0 means match
+						this.bonusByCategory.addRaw(filters, resultlist[1]);
+						total += result;
+						if (bonus.replace) {
+							this.tmpScore /= 10;
+							this.tmpScoreByCategory.f();
+						}
+					}
+				}
+				this.tmpScore += total;
+			}
+			/* TODO: uncomment this when F mechanism is fully understood
+			if (this.type.needFilter() && currentLevel.filter) {
+				currentLevel.filter.filter(this);
+			}*/
+			this.tmpScore = Math.round(this.tmpScore);	 
+		}
+	};
+}
 
 function ScoreByCategory() {
 	var initial = {};

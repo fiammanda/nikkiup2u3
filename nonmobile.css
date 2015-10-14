@@ -20,7 +20,7 @@ p {
 	text-indent: -62px;
 	color: #555;
 }
-h1, h2 {
+h2 {
 	font-weight: lighter;
 }
 span#inventoryCount {
@@ -37,8 +37,6 @@ span.count {
 span#inventoryCount {
 	font-size: 12px;
 }
-
-
 .table {
 	display: table;
 	border-collapse:collapse;
@@ -243,9 +241,19 @@ nav ul li.active a {
 	border-radius: 7px 7px 0 0;
 	vertical-align: middle;
 }
+.subcategory label {
+	color: #777;
+	transition: color 0.2s;
+}
+.subcategory input:checked + label {
+	color: #333;
+}
 .subcategory {
 	display: inline-block;
 	width: 110px;
+}
+.nosubcategory {
+	color: #777;
 }
 ::section {
 	background: rgba(0, 0, 0, 0.5);
