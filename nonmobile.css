@@ -233,12 +233,6 @@ nav ul li.active {
 nav ul li.active a {
 	opacity: 1;
 }
-#category_container > div {
-	display: none;
-}
-#category_container div.active {
-	display: block;
-}
 .subcategories {
 	margin: -1px 0 0 0;
 	padding: 14px 67px 7px;
@@ -252,16 +246,6 @@ nav ul li.active a {
 .subcategory {
 	display: inline-block;
 	width: 110px;
-}
-.subcategory label {
-	color: #777;
-	transition: color 0.2s;
-}
-.subcategory input:checked + label {
-	color: #333;
-}
-.nosubcategory {
-	color: #777;
 }
 ::section {
 	background: rgba(0, 0, 0, 0.5);

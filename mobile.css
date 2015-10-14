@@ -13,8 +13,8 @@ article {
 	padding: 0.25em 0 0.5em 0;
 	height: 5.5em;
 	overflow-y: scroll;
-	border-top: 2px solid #879; 
-	border-bottom: 3px double #879; 
+	border-top: 2px solid #769; 
+	border-bottom: 3px double #769; 
 }
 p {
 	margin: 0;
@@ -29,17 +29,20 @@ nav ul {
 }
 nav ul li {
 	display: inline-block;
-	margin: 4px 6px 0 0;
+	margin: 0 6px 0 0;
 }
 nav ul li a {
 	display: inline-block;
-	color: #768;
-	border: 1px solid #879;
+	color: #658;
+	border: 1px solid #769;
 	border-radius: 4px;
 	padding: 0 3px;
+	width: 1em;
+	height: 1.5em;
+	overflow: hidden;
 }
 nav ul li.active a {
-	background: #879;
+	background: #769;
 	color: #fff;
 	border: 1px solid #657;
 	border-radius: 4px;
@@ -60,7 +63,13 @@ input#tag1, input#tag2 {
 }
 .tagContainer input:last-child {
 	border-radius: 4px !important;
-	margin: 0 0 0 6px;
+	margin: 0 0 0 4px;
+}
+.subcategories {
+	font-size: 80%;
+}
+.subcategories input {
+	margin-left: 0;
 }
 .thead {
 	display: none;
@@ -80,8 +89,8 @@ input#tag1, input#tag2 {
 .score a {
 	display: inline-block;
 	padding: 0 3px;
-	color: #768;
-	border: 1px solid #879;
+	color: #658;
+	border: 1px solid #769;
 	border-radius: 4px;
 }
 .name {
@@ -92,9 +101,9 @@ input#tag1, input#tag2 {
 	margin: 0 6px 0 0;
 	padding: 0 3px;
 	float: left;
-	background: #879;
+	background: #769;
 	color: #fff;
-	border: 1px solid #768;
+	border: 1px solid #658;
 	border-radius: 4px;
 }
 .category {
@@ -104,29 +113,29 @@ input#tag1, input#tag2 {
 	width: 1em;
 	height: 1.5em;
 	overflow: hidden;
-	border: 1px solid #768;
+	border: 1px solid #658;
 	border-right: 0;
 	border-radius: 4px 0 0 4px;
-	background: #879;
+	background: #769;
 	color: #fff;
 }
 .id {
 	margin: 0 6px 0 0;
 	padding: 0 3px 0 1px;
 	float: left;
-	border: 1px solid #768;
+	border: 1px solid #658;
 	border-left: 0;
 	border-radius: 0 4px 4px 0;
-	background: #879;
+	background: #769;
 	color: #fff;
 }
 .star {
 	margin: 0 6px 0 0;
 	padding: 0 3px;
 	float: left;
-	border: 1px solid #768;
+	border: 1px solid #658;
 	border-radius: 4px;
-	background: #879;
+	background: #769;
 	color: #fff;
 }
 .rating {
@@ -135,13 +144,14 @@ input#tag1, input#tag2 {
 }
 .tag {
 	float: right;
+	color: #658;
 }
 .source {
 	clear: left;
 	padding: 0 3px;
-	border: 1px solid #768;
+	border: 1px solid #658;
 	border-radius: 4px;
-	background: #879;
+	background: #769;
 	color: #fff;
 }
 .item {
@@ -152,13 +162,16 @@ input#tag1, input#tag2 {
 	border: 1px solid #666;
 	border-radius: 4px;
 }
+.item:hover {
+	color: #fff;
+}
 .own .item {
-	background: #78b;
-	border: 1px solid #67a;
+	background: #78c;
+	border: 1px solid #67b;
 }
 .own .deps .item {
-	background: #b77;
-	border: 1px solid #a66;
+	background: #c77;
+	border: 1px solid #b66;
 }
 .td[tooltip]:before {
 	display: inline-block;

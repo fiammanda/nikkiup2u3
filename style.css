@@ -135,6 +135,22 @@ input#tag1, input#tag2 {
 	width: 84px;
 	padding: 7px 10px;
 }
+#category_container > div {
+	display: none;
+}
+#category_container div.active {
+	display: block;
+}
+.subcategory label {
+	color: #777;
+	transition: color 0.2s;
+}
+.subcategory input:checked + label {
+	color: #333;
+}
+.nosubcategory {
+	color: #777;
+}
 .td {
 	vertical-align: middle;
 	transition: color 0.2s;
