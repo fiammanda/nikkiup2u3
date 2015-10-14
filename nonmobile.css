@@ -8,10 +8,10 @@ header {
 article {
 	margin: 28px 0 -167px auto;
 	padding: 4px 7px;
-	height: 150px;
+	height: 12em;
 	width: 360px;
 	font-size: 13px;
-	border: 1px dotted #768;
+	border: 1px dashed #768;
 	overflow-y: scroll;
 	cursor: default;
 }

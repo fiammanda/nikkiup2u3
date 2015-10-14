@@ -8,7 +8,6 @@ header, nav, section {
 }
 article {
 	margin: 2em 0;
-	padding: 0.25em 0 0.5em 0;
 	height: 5.5em;
 	overflow-y: scroll;
 	border-top: 2px solid #769; 
