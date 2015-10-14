@@ -33,6 +33,12 @@ nav ul li {
 select {
 	margin: 0;
 }
+input[type="text"] {
+	width: 1.5em !important;
+}
+input#tag1, input#tag2 {
+	width: 5em !important;
+}
 .thead {
 	display: none;
 }
