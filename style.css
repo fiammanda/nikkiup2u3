@@ -31,6 +31,7 @@ h2 {
 	margin: 0 0 40px;
 	font-size: 14px;
 	font-family: "PingHei", "Microsoft Yahei";
+	font-weight: normal;
 }
 section {
 	margin: 40px 0;
@@ -113,11 +114,6 @@ label.btn, a.btn {
 	color: #fff;
 	cursor: pointer;
 	z-index: 0;
-}
-label.btn:hover, a.btn:hover {
-	background: #768;
-	border-color: #657;
-	z-index: 1;
 }
 label.checked, a.btn:active {
 	border-color: #546;

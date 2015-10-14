@@ -2,11 +2,9 @@ main {
 	margin: 1em;
 	line-height: 1.5;
 }
-header {
-	padding: 3em 0;
-}
-section {
-	margin: 2em 0;
+header, nav, section {
+	margin: 0;
+	padding: 2em 0 0;
 }
 article {
 	margin: 2em 0;
@@ -62,8 +60,6 @@ input#tag1, input#tag2 {
 	border-radius: 4px !important;
 	margin: 0 0 0 5px;
 }
-.subcategories {
-}
 .subcategory input {
 	display: none;
 }
@@ -114,10 +110,14 @@ input#tag1, input#tag2 {
 	margin: 0 6px 0 0;
 	padding: 0 3px;
 	float: left;
-	background: #769;
 	color: #fff;
-	border: 1px solid #658;
+	background: #999;
+	border: 1px solid #888;
 	border-radius: 4px;
+}
+.nameChosen {
+	background: #769;
+	border: 1px solid #658; 
 }
 .category {
 	display: none;
@@ -135,10 +135,10 @@ input#tag1, input#tag2 {
 .source {
 	clear: left;
 	padding: 0 3px;
-	border: 1px solid #658;
-	border-radius: 4px;
-	background: #769;
 	color: #fff;
+	background: #999;
+	border: 1px solid #888;
+	border-radius: 4px;
 }
 .item {
 	display: inline-block;
@@ -168,16 +168,9 @@ input#tag1, input#tag2 {
 .void, .totalScore {
 	display: none;
 }
-#clothes .td:nth-child(6), #clothes .td:nth-child(7) {
+.td:nth-child(6), .td:nth-child(7) {
 	clear: left;
-}
-#shoppingCart {
-	padding: 2em 0 3em;
 }
 #shoppingCart .id, #shoppingCart .star, #shoppingCart .source {
 	display: none;
-}
-#shoppingCart .rating, #shoppingCart .tag {
-	float: none;
-	font-size: 90%;
 }

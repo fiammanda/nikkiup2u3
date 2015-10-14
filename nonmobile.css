@@ -37,6 +37,11 @@ span.count {
 span#inventoryCount {
 	font-size: 12px;
 }
+label.btn:hover, a.btn:hover {
+	background: #768;
+	border-color: #657;
+	z-index: 1;
+}
 .table {
 	display: table;
 	border-collapse:collapse;
