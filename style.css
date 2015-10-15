@@ -33,6 +33,11 @@ h2 {
 	font-family: "PingHei", "Microsoft Yahei";
 	font-weight: normal;
 }
+aside {
+	opacity: 0;
+	position: relative;
+	z-index: -1;
+}
 section {
 	margin: 40px 0;
 	clear: both;
@@ -48,13 +53,16 @@ input[type="checkbox"] {
 textarea, input, select {
 	color: #555;
 	border: 1px solid #768;
-	transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
 	font-family: "PingHei", "Lucida Sans Unicode", "Microsoft Yahei";
+	transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
-textarea:hover, textarea:focus, input:hover, input:focus, select:hover {
+textarea:hover, textarea:focus, input:hover, input:focus, select:hover, select:focus {
 	color: #333;
 	border: 1px solid #657;
 	box-shadow: 0 0 5px rgba(100, 50, 200, 0.2) inset;
+}
+textarea:focus, input:focus, select:focus {
+	outline: 0;
 }
 textarea#myClothes {
 	word-break: break-all;
