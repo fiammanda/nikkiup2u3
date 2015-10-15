@@ -225,6 +225,7 @@ nav ul li a {
 	opacity: 0.6;
 }
 nav ul li a:hover {
+	color: #333;
 	opacity: 1;
 }	
 nav ul li.active {
