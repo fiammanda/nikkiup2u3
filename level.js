@@ -1,5 +1,4 @@
 // Ivan's Workshop
-
 var competitionsRaw = {
 	'海边派对的搭配': [0.67, 1.33, 1.0, -1.33, 1.33],
 	'春天在哪里': [0.67, 1.33, 1.33, 1.33, 1.0],
@@ -158,19 +157,13 @@ var levelsRaw = {
 	'9-支1': [1.5, 1.5, 2, 1.5, 2],
 	'9-支2': [-1.5, 1.5, -1.8, 2, 1.6],
 	'9-支3': [2, -2.5, 2, -2.5, 1.75],
-	'10-1': [-1, 1, 1, 1, -1],
-	'10-2': [1, -1, -1, 1, -1],
-	'10-3': [1, 1, 1, 1, 1],
-	'10-4': [1, -1, -2, -1, -2],
-	'10-5': [1.6, -1.2, -1.5, -1.3, 1],
-	'10-6': [-1, 1, 1, -1, 1],
-	'10-7': [-1.35, 1, 1, 1.4, -1.4],
-	'10-8': [1, -1, -1, 1, -1],
-	'10-9-1': [1, -1, -1, 1, 1],
-	'10-9-2': [1, -1, -1, 1, 1],
-	'10-支1': [1, 1, 1, 1, 1],
-	'10-支2': [1, 1, 1, 1, 1],
-	'10-支3': [-1, -1, -1, -1, -1],
+	'10-1': [-1.33, 1.33, 1.67, 1.67, -1.67],
+	'10-2': [1.5, -1.1, -1.1, 1.5, -1.1],
+	'10-3': [1.33, 1.0, 1.33, 1.0, 1.0],
+	'10-4': [1.0, -1.33, -1.67, -1.33, -3.0],
+	'10-5': [1.67, -1.33, -1.67, -1.33, 1.33],
+	'10-6': [-1.6, 1.9, 1.9, -1.6, 1.6],
+	'10-7': [-1.5, 1.2, 1.2, 1.5, -1.5]
 };
 
 function tagMatcher(whitelist, clothes) {
@@ -383,7 +376,7 @@ function swimsuitFactory() {
 }
 
 function specialFactory76A() {
-	return abstractBonusFactory('华丽 成熟 优雅 清纯 清凉 分别按照权重增加', false, 'B, SS, B, C, C', "晚礼服",
+	return abstractBonusFactory('华丽	成熟	优雅	清纯	清凉 分别按照权重增加', false, 'B, SS, B, C, C', "晚礼服",
 			null, function(criteria, clothes) {
 				var total = 0;
 				var byFeature = {};
@@ -403,7 +396,7 @@ function specialFactory76A() {
 }
 
 function specialFactory76B() {
-	return abstractBonusFactory('华丽 成熟 优雅 清纯 清凉 分别按照权重增加', false, 'B, SS, B, C, C', "中式现代",
+	return abstractBonusFactory('华丽	成熟	优雅	清纯	清凉 分别按照权重增加', false, 'B, SS, B, C, C', "中式现代",
 			null, function(criteria, clothes) {
 				var total = 0;
 				var byFeature = {};
@@ -446,19 +439,6 @@ function addBonusInfo(base, weight, tag) {
  *	- Special rules
  */
  var levelBonus = {
-	'清秀佳人': [addBonusInfo('A', 1, "中式现代")],
-	'绝色无双': [addBonusInfo('A', 1, "中式现代")],
-	'保育员面试': [addBonusInfo('S', 1, "小动物")],
-	'海边的比基尼对决！': [addBonusInfo('A', 1, "泳装")],
-	'少女的茶会': [addBonusInfo('SS', 1, "洛丽塔")],
-	'摇滚演唱会': [addBonusInfo('S', 1, "摇滚风")],
-	'花田摄影会': [addBonusInfo('A', 1, "碎花")],
-	'牛仔布的逆袭': [addBonusInfo('B', 1, "牛仔布")],
-	'云端和风茶室': [addBonusInfo('S', 1, "和风")],
-	'运动饮料的推广会': [addBonusInfo('S', 1, "运动系")],
-	'睡衣兜风派对': [addBonusInfo('SS', 1, "睡衣"), addBonusInfo('SS', 1, "居家服")],
-	'云端汉服聚会': [addBonusInfo('SS', 1, "中式古典")],
-	'话剧甄选会': [addBonusInfo('SS', 1, "欧式古典")],
 	"1-1": [],
 	"1-2": [],
 	"1-3": [addBonusInfo('B', 0.25, "中式古典")],
@@ -575,19 +555,31 @@ function addBonusInfo(base, weight, tag) {
 	'9-支1': [addBonusInfo('A', 1, "泳装")],
 	'9-支2': [addBonusInfo('A', 1, "旗袍")],
 	'9-支3': [],
-	'10-1': [addBonusInfo('A', 1, "森女系列")],
+	'10-1': [addBonusInfo('B', 1, "森女系列")],
 	'10-2': [addBonusInfo('A', 1, "中式古典")],
-	'10-3': [addBonusInfo('A', 1, "中式现代")],
+	'10-3': [addBonusInfo('A', 2, "中式现代")],
 	'10-4': [addBonusInfo('A', 1, "军装")],
-	'10-5': [addBonusInfo('A', 1, "晚礼服")],
-	'10-6': [addBonusInfo('A', 1, "民族风")],
-	'10-7': [addBonusInfo('A', 1, "洛丽塔")],
-	'10-8': [addBonusInfo('A', 1, "学院系")],
-	'10-9-1': [addBonusInfo('A', 1, "原宿风")],
-	'10-9-2': [],
-	'10-支1': [addBonusInfo('A', 1, "运动系")],
-	'10-支2': [addBonusInfo('A', 1, "碎花")],
-	'10-支3': [addBonusInfo('A', 1, "欧式古典")],
+	'10-5': [addBonusInfo('B', 1, "晚礼服")],
+	'10-6': [addBonusInfo('S', 1, "民族风")],
+	'10-7': [addBonusInfo('B', 1, "洛丽塔")],
+	'仲夏夜之梦1': [addBonusInfo('S', 1, "童话系")],
+	'仲夏夜之梦2': [replaceBonusInfo('SS', 1, "和风")],
+	'仲夏夜之梦3': [],
+	'仲夏夜之梦4': [replaceBonusInfo('S', 1, "摇滚风")],
+	'仲夏夜之梦5': [replaceBonusInfo('S', 1, "睡衣"), replaceBonusInfo('A', 1, "小动物")],
+	'清秀佳人': [addBonusInfo('A', 1, "中式现代")],
+	'绝色无双': [addBonusInfo('A', 1, "中式现代")],
+	'保育员面试': [addBonusInfo('S', 1, "小动物")],
+	'海边的比基尼对决！': [addBonusInfo('A', 1, "泳装")],
+	'少女的茶会': [addBonusInfo('SS', 1, "洛丽塔")],
+	'摇滚演唱会': [addBonusInfo('S', 1, "摇滚风")],
+	'花田摄影会': [addBonusInfo('A', 1, "碎花")],
+	'牛仔布的逆袭': [addBonusInfo('B', 1, "牛仔布")],
+	'云端和风茶室': [addBonusInfo('S', 1, "和风")],
+	'运动饮料的推广会': [addBonusInfo('S', 1, "运动系")],
+	'睡衣兜风派对': [addBonusInfo('SS', 1, "睡衣"), addBonusInfo('SS', 1, "居家服")],
+	'云端汉服聚会': [addBonusInfo('SS', 1, "中式古典")],
+	'话剧甄选会': [addBonusInfo('SS', 1, "欧式古典")]
  };
 
 var additionalLevelInfo = {

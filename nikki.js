@@ -123,7 +123,11 @@ function row(piece, isShoppingCart) {
 		ret += clickableTd(piece);
 	}
 	var csv = piece.toCsv();
-	ret += td(render(csv[0]), ' category', '');
+	if ( render(csv[0]) == '上装' ) {
+		ret += td('上衣', ' category', '');
+	} else {
+		ret += td(render(csv[0]), ' category', '');
+	}
 	ret += td(render(csv[1]), ' id', '');
 	ret += td(render(csv[2]), ' star', '');
 	ret += td(render(csv[3]), renderCls(csv[3]), ' tooltip="简"');
@@ -641,8 +645,8 @@ function saveAndUpdate() {
 }
 
 function updateSize(mine) {
-	$("#inventoryCount").text(mine.size);
-	$("#myClothes").val(mine.serialize());
+	$('#inventoryCount').text(mine.size);
+	$('#myClothes').val(mine.serialize());
 	var subcount = {};
 	for (c in mine.mine) {
 		var type = c.split('-')[0];
@@ -652,7 +656,11 @@ function updateSize(mine) {
 		subcount[type] += mine.mine[type].length;
 	}
 	for (c in subcount) {
-		$("#" + c + ">a").html(c + " <span class='count'>" + subcount[c] + "</span>");
+		if ( c == '上装' ) {
+			$('#' + c + '> a').html('上衣 <span class="count">' + subcount[c] + '</span>');
+		} else {
+			$('#' + c + '> a').html(c + ' <span class="count">' + subcount[c] + '</span>');
+		}
 	}
 }
 
@@ -670,6 +678,7 @@ function init() {
 	changeMode(false);
 	clearShoppingCart();
 	$('#theme').val('custom');
+	$('html, body').scrollTop('0');
 }
 
 $(document).ready(function() {
@@ -680,6 +689,7 @@ $(document).ready(function() {
 			$('#clothes .nav').removeClass('fix');
 		}
 	});
+	$('.btn :checkbox:checked').parent('label').addClass('checked');
 	$('.btn :checkbox').click(function(){
 		$(this).parent('label').toggleClass('checked');
 	});

@@ -3,8 +3,6 @@
 var FEATURES = ["simple", "active", "cute", "pure", "cool"];
 
 var global = {
-	float: null,
-	floating: true,
 	additionalBonus: null
 };
 
