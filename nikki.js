@@ -100,7 +100,7 @@ function clickableTd(piece) {
 	var end = '';
 	end += own ? ' own' : '';
 	if (deps && deps.length > 0) {
-		tooltip = '+</span><span class="trigger">+</span><span class="tooltip">' + deps;
+		tooltip = '+</span><a class="trigger">+</a><span class="tooltip">' + deps;
 		if (deps.indexOf('★缺') > 0) {
 			cls += ' deps';
 		}

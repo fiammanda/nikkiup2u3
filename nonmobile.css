@@ -171,11 +171,11 @@ label.btn:hover, a.btn:hover {
 	text-align: left;
 	transition: opacity, 0.2s;
 }
-#clothes .name .more:hover + span + .tooltip {
+#clothes .name .more:hover + a + .tooltip {
 	z-index: 9;
 	opacity: 1;
 }
-#clothes .name.deps .more:hover + span + .tooltip {
+#clothes .name.deps .more:hover + a + .tooltip {
 	background: rgba(255, 220, 220, 0.75);
 }
 #clothes .trigger {
