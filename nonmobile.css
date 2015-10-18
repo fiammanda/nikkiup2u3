@@ -89,9 +89,6 @@ label.btn:hover, a.btn:hover {
 	border-bottom: 3px double #777;
 	font-size: 13px;
 }
-.tbody .name {
-	text-align: left;
-}
 .tbody .tr:hover {
 	border-bottom: 1px solid #999;
 }
@@ -136,48 +133,53 @@ label.btn:hover, a.btn:hover {
 	color: #333;
 }
 #clothes .item {
-	padding: 0 0 0 4px;
-	display: inline-block;
-	border-left: 6px solid #ccc;
 	line-height: 1;
 	color: #777;
 }
-#clothes .item:hover {
-	border-color: #777;
-}
 #clothes .own .item {
 	color: #333;
-	border-left: 6px solid rgba(50, 100, 250, 0.5);
 }
-#clothes .own .item:hover {
-	border-color: rgba(50, 100, 250, 1);
+#clothes .more {
+	margin: 0 0 0 4px;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	line-height: 7px;
+	border-radius: 5px;
+	color: #fff;
+	background: rgba(50, 100, 250, 0.5);
+	transition: background 0.2s;
 }
-#clothes .own .deps .item {
-	color: #333;
-	border-left: 6px solid rgba(250, 50, 50, 0.5);
+#clothes .deps .more {
+	background: rgba(250, 50, 50, 0.5);
 }
-#clothes .own .deps .item:hover {
-	border-color: rgba(250, 50, 50, 0.9);
+#clothes .item:hover + .more {
+	background: rgba(50, 100, 250, 1);
 }
-#clothes .td [tooltip]:after {
-	margin: 0 0 0 5px;
-	padding: 5px 7px;
+#clothes .deps .item:hover + .more {
+	background: rgba(250, 50, 50, 0.9);
+}
+#clothes .name .tooltip {
+	margin: -5px 0 0 5px;
+	padding: 4px 7px;
 	z-index: -1;
 	position: absolute;
-	content: attr(tooltip);
 	opacity: 0;
 	white-space: pre;
-	text-align: left;
 	line-height: 21px;
-	background: rgba(200, 225, 255, 0.8);
+	background: rgba(220, 220, 255, 0.75);
+	text-align: left;
 	transition: opacity, 0.2s;
 }
-#clothes .td [tooltip]:hover:after {
+#clothes .name .more:hover + span + .tooltip {
 	z-index: 9;
 	opacity: 1;
 }
-#clothes .td.deps [tooltip]:after {
-	background: rgba(250, 205, 200, 0.8);
+#clothes .name.deps .more:hover + span + .tooltip {
+	background: rgba(255, 220, 220, 0.75);
+}
+#clothes .trigger {
+	display: none;
 }
 #shoppingCart {
 	margin: 49px 0;

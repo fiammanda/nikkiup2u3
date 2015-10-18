@@ -85,15 +85,14 @@ input#tag1, input#tag2 {
 }
 .tr {
 	clear: both;
+	position: relative;
 	padding: 0.5em 0;
-	text-align: right;
 }
 .td {
 	display: inline-block;
 }
 .score {
-	margin: 0 6px 0 0;
-	float: left;
+	float: right;
 }
 .score a {
 	display: inline-block;
@@ -102,45 +101,8 @@ input#tag1, input#tag2 {
 	border: 1px solid #769;
 	border-radius: 4px;
 }
-.name {
-	margin: 0 6px 0 0;
-	float: left;
-}
-.nameChosen, .id, .star {
-	margin: 0 6px 0 0;
-	padding: 0 3px;
-	float: left;
-	color: #fff;
-	background: #999;
-	border: 1px solid #888;
-	border-radius: 4px;
-}
-.nameChosen {
-	background: #769;
-	border: 1px solid #658; 
-}
-.category {
-	display: none;
-}
-.star {
-}
-.rating {
-	margin: 0 4px 0 0;
-	float: left;
-}
-.tag {
-	float: right;
-	color: #658;
-}
-.source {
-	clear: left;
-	padding: 0 3px;
-	color: #fff;
-	background: #999;
-	border: 1px solid #888;
-	border-radius: 4px;
-}
 .item {
+	margin: 0 6px 0 0;
 	display: inline-block;
 	padding: 0 3px;
 	background: #777;
@@ -156,9 +118,75 @@ input#tag1, input#tag2 {
 	background: #78c;
 	border: 1px solid #67b;
 }
-.own .deps .item {
-	background: #c77;
-	border: 1px solid #b66;
+.more {
+	display: none;
+}
+.tooltip {
+	display: block;
+	padding: 0.25em 0.5em;
+	position: absolute;
+	top: 3.9em;
+	left: 0em;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.6);
+	border-radius: 4px;
+	font-size: 90%;
+	z-index: 0;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+.trigger {
+	margin: 0 6px 0 0;
+	display: inline-block;
+	padding: 0 2px;
+	background: #e77;
+	color: #fff;
+	border: 1px solid #d66;
+	border-radius: 4px;
+	transition: background 0.2s, border 0.2s;
+}
+.trigger:hover {
+	background: #f55;
+	border-color: #e44;
+}
+.trigger:hover + .tooltip {
+	z-index: 1;
+	opacity: 1;
+}
+.nameChosen, .id, .star, .category {
+	margin: 0 6px 0 0;
+	padding: 0 3px;
+	float: left;
+	color: #fff;
+	background: #98a;
+	border: 1px solid #879;
+	border-radius: 4px;
+}
+.nameChosen {
+	background: #769;
+	border: 1px solid #658; 
+}
+#clothes .category {
+	display: none;
+}
+.star {
+}
+.rating {
+	margin: 0 4px 0 0;
+	float: left;
+}
+.tag {
+	margin: 0 0 0 8px;
+	float: left;
+	color: #658;
+}
+.source {
+	clear: left;
+	padding: 0 3px;
+	color: #fff;
+	background: #98a;
+	border: 1px solid #879;
+	border-radius: 4px;
 }
 .td[tooltip]:before {
 	display: inline-block;

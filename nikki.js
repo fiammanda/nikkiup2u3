@@ -100,14 +100,14 @@ function clickableTd(piece) {
 	var end = '';
 	end += own ? ' own' : '';
 	if (deps && deps.length > 0) {
-		tooltip = "tooltip='" + deps + "'";
+		tooltip = '+</span><span class="trigger">+</span><span class="tooltip">' + deps;
 		if (deps.indexOf('★缺') > 0) {
 			cls += ' deps';
 		}
 	}
 	ret += end + '">';
 	ret += td('<a onClick="addShoppingCart(\'' + piece.type.mainType + '\',\'' + piece.id + '\')">' + piece.tmpScore + '</a>', ' score', '');
-	ret += '<div id="clickable-' + (type + id) + '" class="' + cls + '"><a class="item" ' + tooltip + 'onClick="toggleInventory(\'' + type + '\',\'' + id + '\')">' + name + '</a></div>';
+	ret += '<div id="clickable-' + (type + id) + '" class="' + cls + '"><a class="item" ' + 'onClick="toggleInventory(\'' + type + '\',\'' + id + '\')">' + name + '</a><span class="more">' + tooltip + '</span></div>';
 	return ret;
 }
 
@@ -678,7 +678,7 @@ function init() {
 	changeMode(false);
 	clearShoppingCart();
 	$('#theme').val('custom');
-	$('html, body').scrollTop('0');
+//	$('html, body').scrollTop('0');
 }
 
 $(document).ready(function() {
@@ -690,10 +690,10 @@ $(document).ready(function() {
 		}
 	});
 	$('.btn :checkbox:checked').parent('label').addClass('checked');
-	$('.btn :checkbox').click(function(){
+	$('.btn :checkbox').click(function() {
 		$(this).parent('label').toggleClass('checked');
 	});
-	$('.btn :radio:not(.checked)').click(function(){
+	$('.btn :radio:not(.checked)').click(function() {
 		$(this).parent('label').addClass('checked');
 		$(this).parent('label').siblings('.checked').removeClass('checked');
 	});
