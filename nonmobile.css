@@ -23,6 +23,12 @@ p {
 h2 {
 	font-weight: lighter;
 }
+a[href] {
+	border-bottom: 1px dotted #98c;
+}
+a[href]:hover {
+	border-color: #666;
+}
 span#inventoryCount {
 	font-size: 12px;
 }
@@ -180,7 +186,7 @@ label.btn:hover, a.btn:hover {
 	background: rgba(250, 50, 50, 1);
 }
 #clothes .name .tooltip {
-	margin: -4px 0 0 5px;
+	margin: -5px 0 0 5px;
 	padding: 4px 7px;
 	z-index: -1;
 	position: absolute;

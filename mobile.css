@@ -36,6 +36,9 @@ nav ul li {
 	display: inline-block;
 	margin: 0 6px 0 0;
 }
+nav ul li:last-child {
+	margin: 0;
+}
 nav ul li a {
 	display: inline-block;
 	color: #658;
@@ -113,6 +116,7 @@ input#tag1, input#tag2 {
 	font-family: "Roboto Mono";
 	font-size: 90%;
 	line-height: 1.667;
+	letter-spacing: -1px;
 }
 .item {
 	margin: 0 6px 0 0;
@@ -217,7 +221,7 @@ input#tag1, input#tag2 {
 }
 .totalScore .score {
 	display: inline-block;
-	padding: 1px 4px;
+	padding: 1px 3px;
 	color: #fff;
 	background: #98a;
 	border-radius: 4px;
