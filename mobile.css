@@ -34,7 +34,7 @@ nav ul {
 }
 nav ul li {
 	display: inline-block;
-	margin: 0 5px 0 0;
+	margin: 0 4px 0 0;
 }
 nav ul li:last-child {
 	margin: 0;
@@ -112,14 +112,8 @@ input#tag1, input#tag2 {
 	border: 1px solid #769;
 	border-radius: 4px;
 }
-.score, .id, .star, .trigger {
-	font-family: "Roboto Mono";
-	font-size: 90%;
-	line-height: 1.667;
-	letter-spacing: -1px;
-}
 .item {
-	margin: 0 6px 0 0;
+	margin: 0 4px 0 0;
 	display: inline-block;
 	padding: 1px 4px;
 	background: #999;
@@ -155,7 +149,7 @@ input#tag1, input#tag2 {
 	opacity: 1;
 }
 .trigger {
-	margin: 0 6px 0 0;
+	margin: 0 4px 0 0;
 	padding: 1px;
 	display: inline-block;
 	color: #fff;
@@ -173,12 +167,21 @@ input#tag1, input#tag2 {
 	background: #f55;
 }
 .nameChosen, .id, .star, .category {
-	margin: 0 6px 0 0;
+	margin: 0 4x 0 0;
 	padding: 1px 4px;
 	float: left;
 	color: #fff;
 	background: #98a;
 	border-radius: 4px;
+}
+.score, .id, .star, .trigger {
+	font-family: "Roboto Mono";
+	font-size: 90%;
+	line-height: 1.667;
+	letter-spacing: -1px;
+}
+.star {
+	padding: 1px 4px 1px 3px;
 }
 .nameChosen {
 	background: #769;
@@ -203,6 +206,10 @@ input#tag1, input#tag2 {
 	color: #fff;
 	background: #98a;
 	border-radius: 4px;
+	font-family: "Roboto Mono";
+	font-size: 90%;
+	line-height: 1.667;
+	letter-spacing: -1px;
 }
 .td[tooltip]:before {
 	display: inline-block;
