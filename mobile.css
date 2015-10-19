@@ -167,7 +167,7 @@ input#tag1, input#tag2 {
 	background: #f55;
 }
 .nameChosen, .id, .star, .category {
-	margin: 0 4x 0 0;
+	margin: 0 4px 0 0;
 	padding: 1px 4px;
 	float: left;
 	color: #fff;
