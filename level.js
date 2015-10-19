@@ -1,4 +1,5 @@
 // Ivan's Workshop
+
 var competitionsRaw = {
 	'海边派对的搭配': [0.67, 1.33, 1.0, -1.33, 1.33],
 	'春天在哪里': [0.67, 1.33, 1.33, 1.33, 1.0],
@@ -170,6 +171,15 @@ var levelsRaw = {
 	'10-支1': [1, 1, 1, 1, 1],
 	'10-支2': [1, 1, 1, 1, 1],
 	'10-支3': [-1, -1, -1, -1, -1],
+};
+
+// all data are presented in order "simple", "cute", "active", "pure", "cool"
+var activitiesRaw = {
+	'1': [-1, -1, -1, 1, -1],
+	'2': [-1, -1, -1, -1, 1],
+	'3': [-1, -1, -1, -1, 1],
+	'4': [1, 1, 1, 1, 1],
+	'5': [1, -1, -1, 1, 1],
 };
 
 function tagMatcher(whitelist, clothes) {
@@ -440,6 +450,11 @@ function addBonusInfo(base, weight, tag) {
  *	- Special rules
  */
  var levelBonus = {
+	'1': [addBonusInfo('A', 1, "欧式古典")],
+	'2': [],
+	'3': [addBonusInfo('A', 1, "欧式古典")],
+	'4': [],
+	'5': [addBonusInfo('A', 1, "晚礼服")],
 	'仲夏夜之梦1': [addBonusInfo('S', 1, "童话系")],
 	'仲夏夜之梦2': [replaceBonusInfo('SS', 1, "和风")],
 	'仲夏夜之梦3': [],
@@ -633,6 +648,10 @@ function level(name, criteria) {
 
 allThemes = function() {
 	var ret = {};
+	for (var theme in activitiesRaw) {
+		var criteria = activitiesRaw[theme];
+		ret['精灵的月下舞会' + theme] = level(theme, parseCriteriaList(criteria));
+	}
 	for (var theme in competitionsRaw) {
 		var criteria = competitionsRaw[theme];
 		ret['评选赛：' + theme] = level(theme, parseCriteriaList(criteria));
