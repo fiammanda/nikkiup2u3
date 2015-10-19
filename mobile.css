@@ -34,7 +34,7 @@ nav ul {
 }
 nav ul li {
 	display: inline-block;
-	margin: 0 6px 0 0;
+	margin: 0 5px 0 0;
 }
 nav ul li:last-child {
 	margin: 0;
@@ -75,8 +75,8 @@ input#tag1, input#tag2 {
 }
 .subcategory label {
 	display: inline-block;
-	margin: 0 3px 3px 0;
-	padding: 0 3px;
+	margin: 0 2px 3px 0;
+	padding: 0 2px;
 	color: #658;
 	border: 1px solid #769;
 	border-radius: 4px;
@@ -221,7 +221,7 @@ input#tag1, input#tag2 {
 }
 .totalScore .score {
 	display: inline-block;
-	padding: 1px 3px;
+	padding: 1px 4px;
 	color: #fff;
 	background: #98a;
 	border-radius: 4px;
