@@ -155,16 +155,16 @@ input#tag1, input#tag2 {
 	font-weight: bold;
 }
 .S, .SS {
-	color: #FB3;
+	color: #f93;
 }
 .A {
-	color: #F0A;
+	color: #f37;
 }
 .B {
-	color: #A66;
+	color: #b77;
 }
 .C {
-	color: #38F;
+	color: #79f;
 }
 .item {
 	position: relative;

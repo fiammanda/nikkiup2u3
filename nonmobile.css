@@ -29,10 +29,13 @@ span#inventoryCount {
 span.count {
 	background: #555;
 	border-radius: 8px;
-	padding: 0 4px;
+	padding: 2px 4px;
 	font-size: 12px;
 	color: #fff;
-	vertical-align: bottom;
+	vertical-align: 1px;
+	display: inline-block;
+	line-height: 1;
+	font-family: "Microsoft Yahei";
 }
 span#inventoryCount {
 	font-size: 12px;

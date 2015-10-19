@@ -1,10 +1,16 @@
+@font-face {
+	font-family: "Roboto Mono";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Roboto Mono"), local("RobotoMono-Regular"), url(robotomono.woff) format("woff");
+}
+
 main {
 	margin: 1em;
 	line-height: 1.5;
 }
-header, nav, section {
-	margin: 0;
-	padding: 2em 0 0;
+header, section {
+	margin: 2em 0 0;
 }
 article {
 	margin: 2em 0;
@@ -13,11 +19,13 @@ article {
 	border-top: 2px solid #769; 
 	border-bottom: 3px double #769; 
 }
+form {
+	padding: 2em 0 0;
+}
 p {
 	margin: 0;
 }
 nav {
-	clear: both;
 }
 nav ul {
 	margin: 0;
@@ -101,22 +109,25 @@ input#tag1, input#tag2 {
 	border: 1px solid #769;
 	border-radius: 4px;
 }
+.score, .id, .star, .trigger {
+	font-family: "Roboto Mono";
+	font-size: 90%;
+	line-height: 1.667;
+}
 .item {
 	margin: 0 6px 0 0;
 	display: inline-block;
-	padding: 0 3px;
-	background: #777;
+	padding: 1px 4px;
+	background: #999;
 	color: #fff;
-	border: 1px solid #666;
 	border-radius: 4px;
-	transition: background 0.2s, border 0.2s;
+	transition: background 0.2s;
+}
+.own .item {
+	background: #769;
 }
 .item:hover {
 	color: #fff;
-}
-.own .item {
-	background: #78c;
-	border: 1px solid #67b;
 }
 .more {
 	display: none;
@@ -141,30 +152,32 @@ input#tag1, input#tag2 {
 }
 .trigger {
 	margin: 0 6px 0 0;
+	padding: 1px;
 	display: inline-block;
-	padding: 0 2px;
-	background: #e77;
 	color: #fff;
-	border: 1px solid #d66;
+	background: #79f;
 	border-radius: 4px;
-	transition: background 0.2s, border 0.2s;
+	transition: background 0.2s;
 }
 .trigger.show {
+	background: #48f;
+}
+.deps .trigger {
+	background: #f77;
+}
+.deps .trigger.show {
 	background: #f55;
-	border-color: #e44;
 }
 .nameChosen, .id, .star, .category {
 	margin: 0 6px 0 0;
-	padding: 0 3px;
+	padding: 1px 4px;
 	float: left;
 	color: #fff;
 	background: #98a;
-	border: 1px solid #879;
 	border-radius: 4px;
 }
 .nameChosen {
 	background: #769;
-	border: 1px solid #658; 
 }
 #clothes .category {
 	display: none;
@@ -182,10 +195,9 @@ input#tag1, input#tag2 {
 }
 .source {
 	clear: left;
-	padding: 0 3px;
+	padding: 1px 4px;
 	color: #fff;
 	background: #98a;
-	border: 1px solid #879;
 	border-radius: 4px;
 }
 .td[tooltip]:before {
@@ -194,11 +206,24 @@ input#tag1, input#tag2 {
 	padding: 0 1px 0 0;
 	font-weight: normal;
 }
-.void, .totalScore {
-	display: none;
-}
 .td:nth-child(6), .td:nth-child(7) {
 	clear: left;
+}
+.void, .totalScore .td:not(.score) {
+	display: none;
+}
+.totalScore {
+	padding: 2.5em 0 0 0;
+}
+.totalScore .score {
+	display: inline-block;
+	padding: 1px 4px;
+	color: #fff;
+	background: #98a;
+	border-radius: 4px;
+}
+#shoppingCart .tbody .tr:not(.totalScore):first-child {
+	padding: 2.5em 0 0 0;
 }
 #shoppingCart .id, #shoppingCart .star, #shoppingCart .source {
 	display: none;

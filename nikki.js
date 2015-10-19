@@ -1,5 +1,5 @@
 function goTop(){	
-	$('html, body').animate({scrollTop: 290}, 300);
+	$('html, body').animate({scrollTop: 270}, 300);
 }
 
 var CATEGORY_HIERARCHY = function() {
@@ -100,8 +100,8 @@ function clickableTd(piece) {
 	var end = '';
 	end += own ? ' own' : '';
 	if (deps && deps.length > 0) {
-		tooltip = '★</span><span class="tooltip">' + deps + '</span><span class="trigger" onclick="toggleShow(\'' + type + id + '\')">+';
-		if (deps.indexOf('★缺') > 0) {
+		tooltip = '★</span><span class="tooltip">' + deps + '</span><span class="trigger" onclick="toggleShow(\'' + type + id + '\')">★';
+		if (deps.indexOf('★') > 0) {
 			cls += ' deps';
 		}
 	}
@@ -153,17 +153,25 @@ function row(piece, isShoppingCart) {
 
 function rowTtlScr(piece, isShoppingCart) {
 	var ret = '';
-	if (isShoppingCart) {
-		ret += ' totalScore">';
-		ret += td(piece.tmpScore, ' score', '');
-		ret += td(piece.name, '', '');
-	} else {
-		ret += clickableTd(piece);
-	}
+	ret += ' totalScore">';
+	ret += td(piece.tmpScore, ' score', '');
+	ret += td(piece.name, ' name', '');
+	ret += td('', ' void', '');
+	ret += td('', ' void', '');
+	ret += td('', ' void', '');
 	var csv = piece.toCsv();
-	for (var i in csv) {
-		ret += td(render(csv[i]), '', '');
-	}
+	ret += td(render(csv[3]), renderCls(csv[3]), ' tooltip="简"');
+	ret += td(render(csv[4]), renderCls(csv[4]), ' tooltip="华"');
+	ret += td(render(csv[5]), renderCls(csv[5]), ' tooltip="活"');
+	ret += td(render(csv[6]), renderCls(csv[6]), ' tooltip="雅"');
+	ret += td(render(csv[7]), renderCls(csv[7]), ' tooltip="爱"');
+	ret += td(render(csv[8]), renderCls(csv[8]), ' tooltip="熟"');
+	ret += td(render(csv[9]), renderCls(csv[9]), ' tooltip="纯"');
+	ret += td(render(csv[10]), renderCls(csv[10]), ' tooltip="感"');
+	ret += td(render(csv[11]), renderCls(csv[11]), ' tooltip="凉"');
+	ret += td(render(csv[12]), renderCls(csv[12]), ' tooltip="暖"');
+	ret += td('', ' void', '');
+	ret += td('', ' void', '');
 	return tr(ret);
 }
 
@@ -175,13 +183,12 @@ function render(piece) {
 }
 
 function renderCls(piece) {
-	if (piece.charAt(0) == '-') {
-		return piece.substring(1);
-	}
 	if (piece.length == '0') {
 		return ' void';
-	} else {
+	} else if (piece == 'SS' || piece == 'S' || piece == 'A' || piece == 'B' || piece == 'C') {
 		return ' rating ' + piece;
+	} else {
+		return '';
 	}
 }
 
@@ -191,6 +198,7 @@ function list(rows, isShoppingCart) {
 		ret += row(rows[i], isShoppingCart);
 	}
 	if (isShoppingCart) {
+//		ret += row(shoppingCart.totalScore, isShoppingCart);
 		ret += rowTtlScr(shoppingCart.totalScore, isShoppingCart);
 	}
 	return ret;
