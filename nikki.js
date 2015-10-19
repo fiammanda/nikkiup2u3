@@ -100,15 +100,21 @@ function clickableTd(piece) {
 	var end = '';
 	end += own ? ' own' : '';
 	if (deps && deps.length > 0) {
-		tooltip = '+</span><a class="trigger">+</a><span class="tooltip">' + deps;
+		tooltip = '★</span><span class="tooltip">' + deps + '</span><span class="trigger" onclick="toggleShow(\'' + type + id + '\')">+';
 		if (deps.indexOf('★缺') > 0) {
 			cls += ' deps';
 		}
 	}
 	ret += end + '">';
 	ret += td('<a onClick="addShoppingCart(\'' + piece.type.mainType + '\',\'' + piece.id + '\')">' + piece.tmpScore + '</a>', ' score', '');
-	ret += '<div id="clickable-' + (type + id) + '" class="' + cls + '"><a class="item" ' + 'onClick="toggleInventory(\'' + type + '\',\'' + id + '\')">' + name + '</a><span class="more">' + tooltip + '</span></div>';
+	ret += '<div id="clickable-' + type + id + '" class="' + cls + '"><a class="item" ' + 'onClick="toggleInventory(\'' + type + '\',\'' + id + '\')">' + name + '</a><span class="more">' + tooltip + '</span></div>';
 	return ret;
+}
+
+function toggleShow(piece) {
+	$('div.name').not('#clickable-' + piece).children('.show').removeClass('show');
+	$('#clickable-' + piece + ' .trigger').toggleClass('show');
+	$('#clickable-' + piece + ' .tooltip').toggleClass('show');
 }
 
 function row(piece, isShoppingCart) {

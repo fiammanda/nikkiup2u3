@@ -109,7 +109,7 @@ input#tag1, input#tag2 {
 	color: #fff;
 	border: 1px solid #666;
 	border-radius: 4px;
-	transition: background 0.2s;
+	transition: background 0.2s, border 0.2s;
 }
 .item:hover {
 	color: #fff;
@@ -135,6 +135,10 @@ input#tag1, input#tag2 {
 	opacity: 0;
 	transition: opacity 0.2s;
 }
+.tooltip.show {
+	z-index: 1;
+	opacity: 1;
+}
 .trigger {
 	margin: 0 6px 0 0;
 	display: inline-block;
@@ -145,13 +149,9 @@ input#tag1, input#tag2 {
 	border-radius: 4px;
 	transition: background 0.2s, border 0.2s;
 }
-.trigger:hover {
+.trigger.show {
 	background: #f55;
 	border-color: #e44;
-}
-.trigger:hover + .tooltip {
-	z-index: 1;
-	opacity: 1;
 }
 .nameChosen, .id, .star, .category {
 	margin: 0 6px 0 0;

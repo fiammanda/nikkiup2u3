@@ -140,42 +140,60 @@ label.btn:hover, a.btn:hover {
 	color: #333;
 }
 #clothes .more {
+	cursor: pointer;
 	margin: 0 0 0 4px;
 	display: inline-block;
 	width: 10px;
 	height: 10px;
-	line-height: 7px;
+	line-height: 10px;
+	font-size: 12px;
 	border-radius: 5px;
 	color: #fff;
-	background: rgba(50, 100, 250, 0.5);
+	background: #bbd;
 	transition: background 0.2s;
 }
-#clothes .deps .more {
-	background: rgba(250, 50, 50, 0.5);
+#clothes .more:empty {
+	cursor: default;
 }
 #clothes .item:hover + .more {
-	background: rgba(50, 100, 250, 1);
+	background: rgba(50, 100, 250, 0.7);
+}
+#clothes .deps .more {
+	background: #dbb;
 }
 #clothes .deps .item:hover + .more {
-	background: rgba(250, 50, 50, 0.9);
+	background: rgba(250, 50, 50, 0.7);
+}
+#clothes .own .more {
+	background: rgba(50, 100, 250, 0.7);
+}
+#clothes .own .item:hover + .more {
+	background: rgba(50, 100, 250, 1);
+}
+#clothes .own .deps .more {
+	background: rgba(250, 50, 50, 0.7);
+}
+#clothes .own .deps .item:hover + .more {
+	background: rgba(250, 50, 50, 1);
 }
 #clothes .name .tooltip {
-	margin: -5px 0 0 5px;
+	margin: -4px 0 0 5px;
 	padding: 4px 7px;
 	z-index: -1;
 	position: absolute;
 	opacity: 0;
 	white-space: pre;
 	line-height: 21px;
-	background: rgba(220, 220, 255, 0.75);
 	text-align: left;
+	background: rgba(210, 215, 255, 0.75);
+	color: #333;
 	transition: opacity, 0.2s;
 }
-#clothes .name .more:hover + a + .tooltip {
+#clothes .name .more:hover + .tooltip {
 	z-index: 9;
 	opacity: 1;
 }
-#clothes .name.deps .more:hover + a + .tooltip {
+#clothes .name.deps .more:hover + .tooltip {
 	background: rgba(255, 220, 220, 0.75);
 }
 #clothes .trigger {
