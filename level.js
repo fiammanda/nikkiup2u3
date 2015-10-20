@@ -166,7 +166,7 @@ var levelsRaw = {
 	'10-6': [-1.6, 1.9, 1.9, -1.6, 1.6],
 	'10-7': [-1.5, 1.2, 1.2, 1.5, -1.5],
 	'10-8': [1, -1, -1, 1, -1],
-	'10-9-1': [1, -1, -1, 1, 1],
+	'10-9-1': [-1, 1, 1, -1, 1],
 	'10-9-2': [1, -1, -1, 1, 1],
 	'10-支1': [1, 1, 1, 1, 1],
 	'10-支2': [1, 1, 1, 1, 1],
@@ -175,11 +175,12 @@ var levelsRaw = {
 
 // all data are presented in order "simple", "cute", "active", "pure", "cool"
 var activitiesRaw = {
-	'1': [-1, -1, -1, 1, -1],
-	'2': [-1, -1, -1, -1, 1],
-	'3': [-1, -1, -1, -1, 1],
-	'4': [1, 1, 1, 1, 1],
-	'5': [1, -1, -1, 1, 1],
+	'1': [-1.2, -1.1, -1.8, 1.2, -0.9],
+	'2': [-1.1, -1.2, -1.7, -1.5, 1.3],
+	'3': [-1.5, -1.7, -1.2, -1.1, 1],
+	'3': [-1.5, -1.7, -1.2, -1.1, 1.0],
+	'4': [1.2, 1.2, 1.7, 1.3, 0.9],
+	'5': [1.3, -1.0, -1.5, 1.7, 1.1],
 };
 
 function tagMatcher(whitelist, clothes) {
@@ -450,11 +451,11 @@ function addBonusInfo(base, weight, tag) {
  *	- Special rules
  */
  var levelBonus = {
-	'1': [addBonusInfo('A', 1, "欧式古典")],
+	'1': [addBonusInfo('C', 1, "欧式古典")],
 	'2': [],
-	'3': [addBonusInfo('A', 1, "欧式古典")],
+	'3': [addBonusInfo('B', 1, "欧式古典")],
 	'4': [],
-	'5': [addBonusInfo('A', 1, "晚礼服")],
+	'5': [addBonusInfo('B', 1, "晚礼服")],
 	'仲夏夜之梦1': [addBonusInfo('S', 1, "童话系")],
 	'仲夏夜之梦2': [replaceBonusInfo('SS', 1, "和风")],
 	'仲夏夜之梦3': [],
@@ -597,7 +598,7 @@ function addBonusInfo(base, weight, tag) {
 	'10-6': [addBonusInfo('S', 1, "民族风")],
 	'10-7': [addBonusInfo('B', 1, "洛丽塔")],
 	'10-8': [addBonusInfo('A', 1, "学院系")],
-	'10-9-1': [addBonusInfo('A', 1, "原宿风")],
+	'10-9-1': [addBonusInfo('A', 1, "原宿系")],
 	'10-9-2': [],
 	'10-支1': [addBonusInfo('A', 1, "运动系")],
 	'10-支2': [addBonusInfo('A', 1, "碎花")],

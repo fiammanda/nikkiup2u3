@@ -1,216 +1,216 @@
 <!DOCTYPE HTML>
 <html lang="zh">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>Nikki's Wardrobe</title>
-		<link href="style.css" rel="stylesheet" type="text/css" media="all" />
-		<link href="nonmobile.css" rel="stylesheet" type="text/css" media="(min-width: 767px)" />
-		<link href="mobile.css" rel="stylesheet" type="text/css" media="only screen and (max-width: 768px)" />
-		<script type="text/javascript" charset="UTF-8" src="jquery.js"></script>
-		<script type="text/javascript" charset="UTF-8" src="wardrobe.js"></script>
-		<script type="text/javascript" charset="UTF-8" src="scoring.js"></script>
-		<script type="text/javascript" charset="UTF-8" src="model.js"></script>
-		<script type="text/javascript" charset="UTF-8" src="level.js"></script>
-		<script type="text/javascript" charset="UTF-8" src="pattern.js"></script>
-		<script type="text/javascript" charset="UTF-8" src="nikki.js"></script>
-	</head>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Nikki's Wardrobe</title>
+	<link href="style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="nonmobile.css" rel="stylesheet" type="text/css" media="(min-width: 767px)" />
+	<link href="mobile.css" rel="stylesheet" type="text/css" media="only screen and (max-width: 768px)" />
+	<script type="text/javascript" charset="UTF-8" src="jquery.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="wardrobe.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="scoring.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="model.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="level.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="pattern.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="nikki.js"></script>
+</head>
 
-	<body>
-	<main>
+<body>
+<main>
 
-		<header>
-			<h1>Nikki's Wardrobe</h1>
-			<h2><a href="http://weibo.com/fiammanda" target="_blank">Fiammanda</a>'s version for learning and self-use, Modified from <a href="http://ivangift.github.io/nikkiup2u3/" target="_blank">Ivan</a> &amp; <a href="http://seal100x.github.io/nikkiup2u3/" target="_blank">Seal100x</a></h2>
-			<article id="update">
-				<p>15.10.20 更新活动关卡（无权重，第二关别穿外套）</p>
-				<p>15.10.19 更新所有服装条目（数据来自<a href="http://tieba.baidu.com/p/3860789814" target="_blank">jillhx</a>）</p>
-				<p>15.10.18 改进iOS端样式</p>
-				<p>15.10.16 更新发型设计图数据</p>
-				<p>15.10.14 更新关卡至第十章，修复iOS端样式</p>
-				<p>15.10.13 改造表格语句，修改分类顺序，修复表头浮动</p>
-				<p>15.10.12 增加属性下拉选择</p>
-				<p>15.10.11 更新夜魄千魅设计图数据</p>
-			</article>
-			<div class="btn-group">
-				<textarea id="myClothes" class="btn" onclick="this.focus(); this.select()"></textarea>
-				<a id="loadInventory" class="btn" onClick="loadCustomInventory()">更新衣柜</a>
+	<header>
+		<h1>Nikki's Wardrobe</h1>
+		<h2><a href="http://weibo.com/fiammanda" target="_blank">Fiammanda</a>'s version for learning and self-use, Modified from <a href="http://ivangift.github.io/nikkiup2u3/" target="_blank">Ivan</a> &amp; <a href="http://seal100x.github.io/nikkiup2u3/" target="_blank">Seal100x</a></h2>
+		<article id="update">
+			<p>15.10.20 更新活动关卡（无权重，第二关别穿外套）</p>
+			<p>15.10.19 更新所有服装条目（数据来自<a href="http://tieba.baidu.com/p/3860789814" target="_blank">jillhx</a> 10.19ver）</p>
+			<p>15.10.18 改进iOS端样式</p>
+			<p>15.10.16 更新发型设计图数据</p>
+			<p>15.10.14 更新关卡至第十章，修复iOS端样式</p>
+			<p>15.10.13 改造表格语句，修改分类顺序，修复表头浮动</p>
+			<p>15.10.12 增加属性下拉选择</p>
+			<p>15.10.11 更新夜魄千魅设计图数据</p>
+		</article>
+		<div class="btn-group">
+			<textarea id="myClothes" class="btn" onclick="this.focus(); this.select()"></textarea>
+			<a id="loadInventory" class="btn" onClick="loadCustomInventory()">更新衣柜</a>
+		</div>
+	</header>
+
+	<section>
+		<form id="filter">
+			<div>
+				<input type="radio" name="mode" value="ranking" onClick="changeMode(false)" style="display: none" checked />
+				<select id="theme" onChange="changeTheme()">
+					<option value="default">ID升序排列</option>
+					<option value="custom">自定义关卡</option>
+				</select>
+				<span id="tagInfo"></span>
 			</div>
-		</header>
-
-		<section>
-			<form id="filter">
-				<div>
-					<input type="radio" name="mode" value="ranking" onClick="changeMode(false)" style="display: none" checked />
-					<select id="theme" onChange="changeTheme()">
-						<option value="default">清空标准</option>
-						<option value="custom">自定义关卡</option>
-					</select>
-					<span id="tagInfo"></span>
-				</div>
-				<div id="styleFilter">
-					<div class="btn-group">
-						<label class="btn">
-							<input type="radio" name="simple" value="0" onClick="changeFilter()" />皆可
-						</label>
-						<label class="btn">
-							<input type="radio" name="simple" value="1" onClick="changeFilter()" />简约
-						</label>
-						<label class="btn">
-							<input type="radio" name="simple" value="-1" onClick="changeFilter()" />华丽
-						</label>
-						<input type="text" id="simpleWeight" name="simpleWeight" value="1" onChange="changeFilter()" placeholder="权重" class="btn" />
-					</div>
-					<div class="btn-group">
-						<label class="btn">
-							<input type="radio" name="active" value="0" onClick="changeFilter()" />皆可
-						</label>
-						<label class="btn">
-							<input type="radio" name="active" value="1" onClick="changeFilter()" />活泼
-						</label>
-						<label class="btn">
-							<input type="radio" name="active" value="-1" onClick="changeFilter()" />优雅
-						</label>
-							<input type="text" id="activeWeight" name="activeWeight" value="1" onChange="changeFilter()" class="btn" />
-					</div>
-					<div class="btn-group">
-						<label class="btn">
-							<input type="radio" name="cute" value="0" onClick="changeFilter()" />皆可
-						</label>
-						<label class="btn">
-							<input type="radio" name="cute" value="1" onClick="changeFilter()" />可爱
-						</label>
-						<label class="btn">
-							<input type="radio" name="cute" value="-1" onClick="changeFilter()" />成熟
-						</label>
-						<input type="text" id="cuteWeight" name="cuteWeight" value="1" onChange="changeFilter()" class="btn" />
-					</div>
-					<div class="btn-group">
-						<label class="btn">
-							<input type="radio" name="pure" value="0" onClick="changeFilter()" />皆可
-						</label>
-						<label class="btn">
-							<input type="radio" name="pure" value="1" onClick="changeFilter()" />清纯
-						</label>
-						<label class="btn">
-							<input type="radio" name="pure" value="-1" onClick="changeFilter()" />性感
-						</label>
-						<input type="text" id="pureWeight" name="pureWeight" value="1" onChange="changeFilter()" class="btn" />
-					</div>
-					<div class="btn-group">
-						<label class="btn">
-							<input type="radio" name="cool" value="0" onClick="changeFilter()" />皆可
-						</label>
-						<label class="btn">
-							<input type="radio" name="cool" value="1" onClick="changeFilter()" />清凉
-						</label>
-						<label class="btn">
-							<input type="radio" name="cool" value="-1" onClick="changeFilter()" />保暖
-						</label>
-						<input type="text" id="coolWeight" name="coolWeight" value="1" onChange="changeFilter()" class="btn" />
-					</div>
-				</div>
-				<div id="tagFilter">
-					<div class="btn-group">
-						<input type="text" id="tag1" name="tag1" list="taglist" onChange="changeFilter()" class="btn" />
-						<div class="tagContainer weightContainer" id="tag1Container">
-							<label class="btn checked">
-								<input type="radio" name="tag1method" value="add" onClick="changeFilter()" checked/>加分
-							</label>
-							<label class="btn">
-								<input type="radio" name="tag1method" value="replace" onClick="changeFilter()" />替换
-							</label>
-							<select id="tag1base" onChange="changeFilter()" class="btn">
-								<option>SS</option><option>S</option><option>A</option><option>B</option><option>C</option>
-							</select>
-							<input type="text" id="tag1weight" name="tag1weight" value="1" onChange="changeFilter()" class="btn" />
-						</div>
-					</div>
-					<div class="btn-group">
-						<input type="text" id="tag2" name="tag2" list="taglist" onChange="changeFilter()" class="btn" />
-						<div class="tagContainer weightContainer" id="tag2Container">
-							<label class="btn checked">
-								<input type="radio" name="tag2method" value="add" onClick="changeFilter()" checked/>加分
-							</label>
-							<label class="btn">					
-								<input type="radio" name="tag2method" value="replace" onClick="changeFilter()" />替换
-							</label>
-							<select id="tag2base" onChange="changeFilter()" class="btn">
-								<option>SS</option><option>S</option><option>A</option><option>B</option><option>C</option>
-							</select>
-							<input type="text" id="tag2weight" name="tag2weight" value="1" onChange="changeFilter()" class="btn" />
-						</div>
-					</div>
-				</div>
-				<div id="ownFilter" class="btn-group">
+			<div id="styleFilter">
+				<div class="btn-group">
 					<label class="btn">
-						<input type="checkbox" name="inventory" value="own" onClick="onChangeUiFilter()" checked />拥有
-						<span id="inventoryCount"></span>
+						<input type="radio" name="simple" value="0" onClick="changeFilter()" />皆可
 					</label>
-					<label class="btn">					
-						 <input type="checkbox" name="inventory" value="missing" onClick="onChangeUiFilter()" checked />没有
+					<label class="btn">
+						<input type="radio" name="simple" value="1" onClick="changeFilter()" />简约
 					</label>
-					<a id="clearCart" class="btn" onclick="clearShoppingCart()">清空自动选择</a>
+					<label class="btn">
+						<input type="radio" name="simple" value="-1" onClick="changeFilter()" />华丽
+					</label>
+					<input type="text" id="simpleWeight" name="simpleWeight" value="1" onChange="changeFilter()" placeholder="权重" class="btn" />
 				</div>
-				<datalist id="taglist">
-					<option value="波西米亚" />
-					<option value="大小姐" />
-					<option value="冬装" />
-					<option value="防晒" />
-					<option value="哥特风" />
-					<option value="海军风" />
-					<option value="和风" />
-					<option value="婚纱" />
-					<option value="居家服" />
-					<option value="军装" />
-					<option value="洛丽塔" />
-					<option value="民国服饰" />
-					<option value="民族风" />
-					<option value="沐浴" />
-					<option value="牛仔布" />
-					<option value="女仆装" />
-					<option value="女神系" />
-					<option value="OL" />
-					<option value="欧式古典" />
-					<option value="POP" />
-					<option value="旗袍" />
-					<option value="森女系列" />
-					<option value="睡衣" />
-					<option value="碎花" />
-					<option value="童话系" />
-					<option value="兔女郎" />
-					<option value="晚礼服" />
-					<option value="围裙" />
-					<option value="未来系" />
-					<option value="舞者" />
-					<option value="侠客联盟" />
-					<option value="小动物" />
-					<option value="学院系" />
-					<option value="摇滚风" />
-					<option value="医务使者" />
-					<option value="印度服饰" />
-					<option value="英伦" />
-					<option value="雨季装备" />
-					<option value="原宿风" />
-					<option value="运动系" />
-					<option value="中性风" />
-					<option value="中式古典" />
-					<option value="中式现代" />
-				</datalist>
-			</form>
-		</section>
+				<div class="btn-group">
+					<label class="btn">
+						<input type="radio" name="active" value="0" onClick="changeFilter()" />皆可
+					</label>
+					<label class="btn">
+						<input type="radio" name="active" value="1" onClick="changeFilter()" />活泼
+					</label>
+					<label class="btn">
+						<input type="radio" name="active" value="-1" onClick="changeFilter()" />优雅
+					</label>
+						<input type="text" id="activeWeight" name="activeWeight" value="1" onChange="changeFilter()" class="btn" />
+				</div>
+				<div class="btn-group">
+					<label class="btn">
+						<input type="radio" name="cute" value="0" onClick="changeFilter()" />皆可
+					</label>
+					<label class="btn">
+						<input type="radio" name="cute" value="1" onClick="changeFilter()" />可爱
+					</label>
+					<label class="btn">
+						<input type="radio" name="cute" value="-1" onClick="changeFilter()" />成熟
+					</label>
+					<input type="text" id="cuteWeight" name="cuteWeight" value="1" onChange="changeFilter()" class="btn" />
+				</div>
+				<div class="btn-group">
+					<label class="btn">
+						<input type="radio" name="pure" value="0" onClick="changeFilter()" />皆可
+					</label>
+					<label class="btn">
+						<input type="radio" name="pure" value="1" onClick="changeFilter()" />清纯
+					</label>
+					<label class="btn">
+						<input type="radio" name="pure" value="-1" onClick="changeFilter()" />性感
+					</label>
+					<input type="text" id="pureWeight" name="pureWeight" value="1" onChange="changeFilter()" class="btn" />
+				</div>
+				<div class="btn-group">
+					<label class="btn">
+						<input type="radio" name="cool" value="0" onClick="changeFilter()" />皆可
+					</label>
+					<label class="btn">
+						<input type="radio" name="cool" value="1" onClick="changeFilter()" />清凉
+					</label>
+					<label class="btn">
+						<input type="radio" name="cool" value="-1" onClick="changeFilter()" />保暖
+					</label>
+					<input type="text" id="coolWeight" name="coolWeight" value="1" onChange="changeFilter()" class="btn" />
+				</div>
+			</div>
+			<div id="tagFilter">
+				<div class="btn-group">
+					<input type="text" id="tag1" name="tag1" list="taglist" onChange="changeFilter()" class="btn" />
+					<div class="tagContainer weightContainer" id="tag1Container">
+						<label class="btn checked">
+							<input type="radio" name="tag1method" value="add" onClick="changeFilter()" checked/>加分
+						</label>
+						<label class="btn">
+							<input type="radio" name="tag1method" value="replace" onClick="changeFilter()" />替换
+						</label>
+						<select id="tag1base" onChange="changeFilter()" class="btn">
+							<option>SS</option><option>S</option><option>A</option><option>B</option><option>C</option>
+						</select>
+						<input type="text" id="tag1weight" name="tag1weight" value="1" onChange="changeFilter()" class="btn" />
+					</div>
+				</div>
+				<div class="btn-group">
+					<input type="text" id="tag2" name="tag2" list="taglist" onChange="changeFilter()" class="btn" />
+					<div class="tagContainer weightContainer" id="tag2Container">
+						<label class="btn checked">
+							<input type="radio" name="tag2method" value="add" onClick="changeFilter()" checked/>加分
+						</label>
+						<label class="btn">					
+							<input type="radio" name="tag2method" value="replace" onClick="changeFilter()" />替换
+						</label>
+						<select id="tag2base" onChange="changeFilter()" class="btn">
+							<option>SS</option><option>S</option><option>A</option><option>B</option><option>C</option>
+						</select>
+						<input type="text" id="tag2weight" name="tag2weight" value="1" onChange="changeFilter()" class="btn" />
+					</div>
+				</div>
+			</div>
+			<div id="ownFilter" class="btn-group">
+				<label class="btn">
+					<input type="checkbox" name="inventory" value="own" onClick="onChangeUiFilter()" checked />拥有
+					<span id="inventoryCount"></span>
+				</label>
+				<label class="btn">					
+					 <input type="checkbox" name="inventory" value="missing" onClick="onChangeUiFilter()" checked />没有
+				</label>
+				<a id="clearCart" class="btn" onclick="clearShoppingCart()">清空自动选择</a>
+			</div>
+			<datalist id="taglist">
+				<option value="波西米亚" />
+				<option value="大小姐" />
+				<option value="冬装" />
+				<option value="防晒" />
+				<option value="哥特风" />
+				<option value="海军风" />
+				<option value="和风" />
+				<option value="婚纱" />
+				<option value="居家服" />
+				<option value="军装" />
+				<option value="洛丽塔" />
+				<option value="民国服饰" />
+				<option value="民族风" />
+				<option value="沐浴" />
+				<option value="牛仔布" />
+				<option value="女仆装" />
+				<option value="女神系" />
+				<option value="OL" />
+				<option value="欧式古典" />
+				<option value="POP" />
+				<option value="旗袍" />
+				<option value="森女系列" />
+				<option value="睡衣" />
+				<option value="碎花" />
+				<option value="童话系" />
+				<option value="兔女郎" />
+				<option value="晚礼服" />
+				<option value="围裙" />
+				<option value="未来系" />
+				<option value="舞者" />
+				<option value="侠客联盟" />
+				<option value="小动物" />
+				<option value="学院系" />
+				<option value="摇滚风" />
+				<option value="医务使者" />
+				<option value="印度服饰" />
+				<option value="英伦" />
+				<option value="雨季装备" />
+				<option value="原宿系" />
+				<option value="运动系" />
+				<option value="中性风" />
+				<option value="中式古典" />
+				<option value="中式现代" />
+			</datalist>
+		</form>
+	</section>
 
-		<section id="shoppingCart"></section>
+	<section id="shoppingCart"></section>
 
-		<nav id="category_container"></nav>
-		<section id="clothes"></section>
-	
-	</main>
-	<aside>
-		<script language="javascript" type="text/javascript" src="http://js.users.51.la/18644667.js"></script>
-		<noscript><a href="http://www.51.la/?18644667" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/18644667.asp" style="border:none" /></a></noscript>
-		</aside>
-	</body>
+	<nav id="category_container"></nav>
+	<section id="clothes"></section>
+
+</main>
+<aside>
+	<script language="javascript" type="text/javascript" src="http://js.users.51.la/18644667.js"></script>
+	<noscript><a href="http://www.51.la/?18644667" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/18644667.asp" style="border:none" /></a></noscript>
+</aside>
+</body>
 
 </html>

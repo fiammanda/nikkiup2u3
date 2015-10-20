@@ -186,6 +186,7 @@ label.btn:hover, a.btn:hover {
 	background: rgba(250, 50, 50, 1);
 }
 #clothes .name .tooltip {
+	display: none;
 	margin: -5px 0 0 5px;
 	padding: 4px 7px;
 	z-index: -1;
@@ -199,6 +200,7 @@ label.btn:hover, a.btn:hover {
 	transition: opacity, 0.2s;
 }
 #clothes .name .more:hover + .tooltip {
+	display: inline-block;
 	z-index: 9;
 	opacity: 1;
 }
