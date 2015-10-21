@@ -100,21 +100,22 @@ function clickableTd(piece) {
 	var end = '';
 	end += own ? ' own' : '';
 	if (deps && deps.length > 0) {
-		tooltip = '★</span><span class="tooltip">' + deps + '</span><span class="trigger" onclick="toggleShow(\'' + type + id + '\')">★';
+		tooltip = ' class="tooltip" data-content="' + deps + '" onClick="toggleTooltip.call(this)">★';
 		if (deps.indexOf('★') > 0) {
 			cls += ' deps';
 		}
+	} else {
+		tooltip = '>';
 	}
 	ret += end + '">';
 	ret += td('<a onClick="addShoppingCart(\'' + piece.type.mainType + '\',\'' + piece.id + '\')">' + piece.tmpScore + '</a>', ' score', '');
-	ret += '<div id="clickable-' + type + id + '" class="' + cls + '"><a class="item" ' + 'onClick="toggleInventory(\'' + type + '\',\'' + id + '\')">' + name + '</a><span class="more">' + tooltip + '</span></div>';
+	ret += '<div id="clickable-' + type + id + '" class="' + cls + '"><a class="item" ' + 'onClick="toggleInventory(\'' + type + '\',\'' + id + '\')">' + name + '</a><span' + tooltip + '</span></div>';
 	return ret;
 }
 
-function toggleShow(piece) {
-	$('div.name').not('#clickable-' + piece).children('.show').removeClass('show');
-	$('#clickable-' + piece + ' .trigger').toggleClass('show');
-	$('#clickable-' + piece + ' .tooltip').toggleClass('show');
+function toggleTooltip() {
+	$('.show').not(this).removeClass('show');
+	$(this).toggleClass('show');
 }
 
 function row(piece, isShoppingCart) {
@@ -136,16 +137,16 @@ function row(piece, isShoppingCart) {
 	}
 	ret += td(render(csv[1]), ' id', '');
 	ret += td(render(csv[2]), ' star', '');
-	ret += td(render(csv[3]), renderCls(csv[3]), ' tooltip="简"');
-	ret += td(render(csv[4]), renderCls(csv[4]), ' tooltip="华"');
-	ret += td(render(csv[5]), renderCls(csv[5]), ' tooltip="活"');
-	ret += td(render(csv[6]), renderCls(csv[6]), ' tooltip="雅"');
-	ret += td(render(csv[7]), renderCls(csv[7]), ' tooltip="爱"');
-	ret += td(render(csv[8]), renderCls(csv[8]), ' tooltip="熟"');
-	ret += td(render(csv[9]), renderCls(csv[9]), ' tooltip="纯"');
-	ret += td(render(csv[10]), renderCls(csv[10]), ' tooltip="感"');
-	ret += td(render(csv[11]), renderCls(csv[11]), ' tooltip="凉"');
-	ret += td(render(csv[12]), renderCls(csv[12]), ' tooltip="暖"');
+	ret += td(render(csv[3]), renderCls(csv[3]), ' data-tooltip="简"');
+	ret += td(render(csv[4]), renderCls(csv[4]), ' data-tooltip="华"');
+	ret += td(render(csv[5]), renderCls(csv[5]), ' data-tooltip="活"');
+	ret += td(render(csv[6]), renderCls(csv[6]), ' data-tooltip="雅"');
+	ret += td(render(csv[7]), renderCls(csv[7]), ' data-tooltip="爱"');
+	ret += td(render(csv[8]), renderCls(csv[8]), ' data-tooltip="熟"');
+	ret += td(render(csv[9]), renderCls(csv[9]), ' data-tooltip="纯"');
+	ret += td(render(csv[10]), renderCls(csv[10]), ' data-tooltip="感"');
+	ret += td(render(csv[11]), renderCls(csv[11]), ' data-tooltip="凉"');
+	ret += td(render(csv[12]), renderCls(csv[12]), ' data-tooltip="暖"');
 	ret += td(render(csv[13]), ' tag', '');
 	ret += td(render(csv[14]), ' source', '');
 	return tr(ret);
@@ -160,16 +161,16 @@ function rowTtlScr(piece, isShoppingCart) {
 	ret += td('', ' void', '');
 	ret += td('', ' void', '');
 	var csv = piece.toCsv();
-	ret += td(render(csv[3]), renderCls(csv[3]), ' tooltip="简"');
-	ret += td(render(csv[4]), renderCls(csv[4]), ' tooltip="华"');
-	ret += td(render(csv[5]), renderCls(csv[5]), ' tooltip="活"');
-	ret += td(render(csv[6]), renderCls(csv[6]), ' tooltip="雅"');
-	ret += td(render(csv[7]), renderCls(csv[7]), ' tooltip="爱"');
-	ret += td(render(csv[8]), renderCls(csv[8]), ' tooltip="熟"');
-	ret += td(render(csv[9]), renderCls(csv[9]), ' tooltip="纯"');
-	ret += td(render(csv[10]), renderCls(csv[10]), ' tooltip="感"');
-	ret += td(render(csv[11]), renderCls(csv[11]), ' tooltip="凉"');
-	ret += td(render(csv[12]), renderCls(csv[12]), ' tooltip="暖"');
+	ret += td(render(csv[3]), renderCls(csv[3]), ' data-tooltip="简"');
+	ret += td(render(csv[4]), renderCls(csv[4]), ' data-tooltip="华"');
+	ret += td(render(csv[5]), renderCls(csv[5]), ' data-tooltip="活"');
+	ret += td(render(csv[6]), renderCls(csv[6]), ' data-tooltip="雅"');
+	ret += td(render(csv[7]), renderCls(csv[7]), ' data-tooltip="爱"');
+	ret += td(render(csv[8]), renderCls(csv[8]), ' data-tooltip="熟"');
+	ret += td(render(csv[9]), renderCls(csv[9]), ' data-tooltip="纯"');
+	ret += td(render(csv[10]), renderCls(csv[10]), ' data-tooltip="感"');
+	ret += td(render(csv[11]), renderCls(csv[11]), ' data-tooltip="凉"');
+	ret += td(render(csv[12]), renderCls(csv[12]), ' data-tooltip="暖"');
 	ret += td('', ' void', '');
 	ret += td('', ' void', '');
 	return tr(ret);

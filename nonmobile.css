@@ -142,73 +142,62 @@ label.btn:hover, a.btn:hover {
 	color: #333;
 }
 #clothes .item {
+	padding: 0 4px 0 0;
 	line-height: 1;
 	color: #777;
 }
 #clothes .own .item {
 	color: #333;
 }
-#clothes .more {
-	cursor: pointer;
-	margin: 0 0 0 4px;
+#clothes span {
 	display: inline-block;
 	width: 10px;
 	height: 10px;
 	line-height: 10px;
 	font-size: 12px;
 	border-radius: 5px;
-	color: #fff;
+	color: rgba(255, 255, 255, 0.75);
 	background: #bbd;
-	transition: background 0.2s;
+	transition: color 0.2s, background 0.2s;
 }
-#clothes .more:empty {
-	cursor: default;
+#clothes span.tooltip {
+	cursor: pointer;
 }
-#clothes .item:hover + .more {
-	background: rgba(50, 100, 250, 0.7);
+#clothes span.tooltip:hover,
+#clothes .item:hover + span.tooltip {
+	color: rgba(255, 255, 255, 1);
 }
-#clothes .deps .more {
+#clothes .deps span.tooltip {
 	background: #dbb;
 }
-#clothes .deps .item:hover + .more {
-	background: rgba(250, 50, 50, 0.7);
-}
-#clothes .own .more {
+#clothes .own span {
 	background: rgba(50, 100, 250, 0.7);
 }
-#clothes .own .item:hover + .more {
-	background: rgba(50, 100, 250, 1);
-}
-#clothes .own .deps .more {
+#clothes .own .deps span.tooltip {
 	background: rgba(250, 50, 50, 0.7);
 }
-#clothes .own .deps .item:hover + .more {
-	background: rgba(250, 50, 50, 1);
-}
-#clothes .name .tooltip {
-	display: none;
-	margin: -5px 0 0 5px;
+#clothes .tooltip:hover:after {
+	content: attr(data-content);
+	margin: -10px 0 0 5px;
 	padding: 4px 7px;
-	z-index: -1;
+	display: inline-block;
 	position: absolute;
 	opacity: 0;
-	white-space: pre;
 	line-height: 21px;
+	font-size: 14px;
 	text-align: left;
 	background: rgba(210, 215, 255, 0.75);
 	color: #333;
-	transition: opacity, 0.2s;
-}
-#clothes .name .more:hover + .tooltip {
-	display: inline-block;
-	z-index: 9;
+	z-index: 1;
 	opacity: 1;
 }
-#clothes .name.deps .more:hover + .tooltip {
-	background: rgba(255, 220, 220, 0.75);
+#clothes .tooltip:empty:hover:after {
+	margin: 0;
+	padding: 0;
+	opacity: 0;
 }
-#clothes .trigger {
-	display: none;
+#clothes .name.deps .tooltip:hover:after {
+	background: rgba(255, 220, 220, 0.75);
 }
 #shoppingCart {
 	margin: 49px 0;

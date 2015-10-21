@@ -102,16 +102,6 @@ input#tag1, input#tag2 {
 .td {
 	display: inline-block;
 }
-.score {
-	float: right;
-}
-.score a {
-	display: inline-block;
-	padding: 0 3px;
-	color: #658;
-	border: 1px solid #769;
-	border-radius: 4px;
-}
 .item {
 	margin: 0 4px 0 0;
 	display: inline-block;
@@ -127,45 +117,6 @@ input#tag1, input#tag2 {
 .item:hover {
 	color: #fff;
 }
-.more {
-	display: none;
-}
-.tooltip {
-	display: block;
-	padding: 0.25em 0.5em;
-	position: absolute;
-	top: 3.9em;
-	left: 0em;
-	color: #fff;
-	background: rgba(0, 0, 0, 0.6);
-	border-radius: 4px;
-	font-size: 90%;
-	z-index: 0;
-	opacity: 0;
-	transition: opacity 0.2s;
-}
-.tooltip.show {
-	z-index: 1;
-	opacity: 1;
-}
-.trigger {
-	margin: 0 4px 0 0;
-	padding: 1px;
-	display: inline-block;
-	color: #fff;
-	background: #79f;
-	border-radius: 4px;
-	transition: background 0.2s;
-}
-.trigger.show {
-	background: #48f;
-}
-.deps .trigger {
-	background: #f77;
-}
-.deps .trigger.show {
-	background: #f55;
-}
 .nameChosen, .id, .star, .category {
 	margin: 0 4px 0 0;
 	padding: 1px 4px;
@@ -174,22 +125,56 @@ input#tag1, input#tag2 {
 	background: #98a;
 	border-radius: 4px;
 }
-.score, .id, .star, .trigger {
-	font-family: "Roboto Mono";
+.score, .id, .star, .tooltip {
+	padding: 1px 4px 1px 3px;
+	font-family: "Roboto Mono", "PingHei";
 	font-size: 90%;
 	line-height: 1.667;
 	letter-spacing: -1px;
 }
-.star {
-	padding: 1px 4px 1px 3px;
-}
 .nameChosen {
 	background: #769;
 }
-#clothes .category {
-	display: none;
+.score {
+	padding: 0;
+	float: right;
 }
-.star {
+.score a {
+	display: inline-block;
+	padding: 0 3px 0 2px;
+	color: #658;
+	border: 1px solid #769;
+	border-radius: 4px;
+}
+.tooltip {
+	margin: 0 4px 0 0;
+	padding: 1px 2px 1px 1px;
+	display: inline-block;
+	color: #fff;
+	background: #79f;
+	border-radius: 4px;
+	transition: background 0.2s;
+}
+.tooltip.show {
+	background: #48f;
+}
+.tooltip.show:after {
+	content: attr(data-content);
+	padding: 0.25em 0.5em;
+	position: absolute;
+	top: 2.7em;
+	left: 0em;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.6);
+	border-radius: 4px;
+	z-index: 1;
+	opacity: 1;
+}
+.deps .tooltip {
+	background: #f77;
+}
+.deps .tooltip.show {
+	background: #f55;
 }
 .rating {
 	margin: 0 4px 0 0;
@@ -202,7 +187,7 @@ input#tag1, input#tag2 {
 }
 .source {
 	clear: left;
-	padding: 1px 4px;
+	padding: 1px 4px 1px 3px;
 	color: #fff;
 	background: #98a;
 	border-radius: 4px;
@@ -211,9 +196,9 @@ input#tag1, input#tag2 {
 	line-height: 1.667;
 	letter-spacing: -1px;
 }
-.td[tooltip]:before {
+.td[data-tooltip]:before {
 	display: inline-block;
-	content: attr(tooltip);
+	content: attr(data-tooltip);
 	padding: 0 1px 0 0;
 	font-weight: normal;
 }
@@ -232,6 +217,9 @@ input#tag1, input#tag2 {
 	color: #fff;
 	background: #98a;
 	border-radius: 4px;
+}
+#clothes .category {
+	display: none;
 }
 #shoppingCart .tbody .tr:not(.totalScore):first-child {
 	padding: 2.5em 0 0 0;
