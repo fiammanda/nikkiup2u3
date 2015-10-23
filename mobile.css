@@ -14,10 +14,19 @@ header {
 }
 ul#notice {
 	margin: 2em 0 0 0;
-	padding: 0 0 0 0.5em;
+	padding: 0;
 	height: 6em;
 	overflow-y: scroll;
 	border-top: 3px double #769; 
+}
+ul#notice li {
+	text-indent: -1em;
+}
+ul#notice li:before {
+	content: "\00bb";
+	display: inline-block;
+	text-align: center;
+	width: 1em;
 }
 article {
 	margin: 0 0 2em 0;
