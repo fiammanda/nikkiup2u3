@@ -23,18 +23,26 @@
 	<header>
 		<h1>Nikki's Wardrobe</h1>
 		<h2><a href="http://weibo.com/fiammanda" target="_blank">Fiammanda</a>'s version for learning and self-use, Modified from <a href="http://ivangift.github.io/nikkiup2u3/" target="_blank">Ivan</a> &amp; <a href="http://seal100x.github.io/nikkiup2u3/" target="_blank">Seal100x</a></h2>
+		<ul id="notice">
+			<li>仅支持最新版本Chrome/Firefox/Maxthon/iOSsafari</li>
+			<li>关卡数据来自IP君</li>
+			<li>点击分数加入/移出选择</li>
+			<li>电脑版点击表头返回页首</li>
+			<li>设计图数据以实际为准（材料登记为染色/进化后）</li>
+		</ul>
 		<article id="update">
-			<p>15.10.20 更新活动关卡</p>
-			<p>15.10.19 更新所有服装条目（数据来自<a href="http://tieba.baidu.com/p/3860789814" target="_blank">jillhx</a> 10.19ver）</p>
-			<p>15.10.18 改进iOS端样式</p>
-			<p>15.10.16 更新发型设计图数据</p>
-			<p>15.10.14 更新关卡至第十章，修复iOS端样式</p>
-			<p>15.10.13 改造表格语句，修改分类顺序，修复表头浮动</p>
-			<p>15.10.12 增加属性下拉选择</p>
-			<p>15.10.11 更新夜魄千魅设计图数据</p>
+			<p><time>15.10.23</time> <span>更新活动服装条目，更新设计图数据至上装</span></p>
+			<p><time>15.10.20</time> <span>更新活动关卡</span></p>
+			<p><time>15.10.19</time> <span>更新所有服装条目（数据来自 <a href="http://tieba.baidu.com/p/3860789814" target="_blank">jillhx 10/19</a>）</span></p>
+			<p><time>15.10.18</time> <span>改进iOS端样式</span></p>
+			<p><time>15.10.16</time> <span>更新发型设计图数据</span></p>
+			<p><time>15.10.14</time> <span>更新关卡至第十章，修复iOS端样式</span></p>
+			<p><time>15.10.13</time> <span>改造表格语句，修改分类顺序，修复表头浮动</span></p>
+			<p><time>15.10.12</time> <span>增加属性下拉选择</span></p>
+			<p><time>15.10.11</time> <span>更新夜魄千魅设计图数据</span></p>
 		</article>
 		<div class="btn-group">
-			<textarea id="myClothes" class="btn" onclick="this.focus(); this.select()"></textarea>
+			<textarea id="myClothes" class="btn" onClick="this.focus(); this.select();"></textarea>
 			<a id="loadInventory" class="btn" onClick="loadCustomInventory()">更新衣柜</a>
 		</div>
 	</header>
@@ -44,16 +52,13 @@
 			<div>
 				<input type="radio" name="mode" value="ranking" onClick="changeMode(false)" style="display: none" checked />
 				<select id="theme" onChange="changeTheme()">
-					<option value="default">ID升序排列</option>
+					<option value="default">默认排序</option>
 					<option value="custom">自定义关卡</option>
 				</select>
 				<span id="tagInfo"></span>
 			</div>
 			<div id="styleFilter">
 				<div class="btn-group">
-					<label class="btn">
-						<input type="radio" name="simple" value="0" onClick="changeFilter()" />皆可
-					</label>
 					<label class="btn">
 						<input type="radio" name="simple" value="1" onClick="changeFilter()" />简约
 					</label>
@@ -64,9 +69,6 @@
 				</div>
 				<div class="btn-group">
 					<label class="btn">
-						<input type="radio" name="active" value="0" onClick="changeFilter()" />皆可
-					</label>
-					<label class="btn">
 						<input type="radio" name="active" value="1" onClick="changeFilter()" />活泼
 					</label>
 					<label class="btn">
@@ -75,9 +77,6 @@
 						<input type="text" id="activeWeight" name="activeWeight" value="1" onChange="changeFilter()" class="btn" />
 				</div>
 				<div class="btn-group">
-					<label class="btn">
-						<input type="radio" name="cute" value="0" onClick="changeFilter()" />皆可
-					</label>
 					<label class="btn">
 						<input type="radio" name="cute" value="1" onClick="changeFilter()" />可爱
 					</label>
@@ -88,9 +87,6 @@
 				</div>
 				<div class="btn-group">
 					<label class="btn">
-						<input type="radio" name="pure" value="0" onClick="changeFilter()" />皆可
-					</label>
-					<label class="btn">
 						<input type="radio" name="pure" value="1" onClick="changeFilter()" />清纯
 					</label>
 					<label class="btn">
@@ -99,9 +95,6 @@
 					<input type="text" id="pureWeight" name="pureWeight" value="1" onChange="changeFilter()" class="btn" />
 				</div>
 				<div class="btn-group">
-					<label class="btn">
-						<input type="radio" name="cool" value="0" onClick="changeFilter()" />皆可
-					</label>
 					<label class="btn">
 						<input type="radio" name="cool" value="1" onClick="changeFilter()" />清凉
 					</label>
@@ -151,7 +144,8 @@
 				<label class="btn">					
 					 <input type="checkbox" name="inventory" value="missing" onClick="onChangeUiFilter()" checked />没有
 				</label>
-				<a id="clearCart" class="btn" onclick="clearShoppingCart()">清空自动选择</a>
+				<a id="clearCart" class="btn" onclick="clearShoppingCart()">清空</a>
+				<a id="reset" class="btn" onclick="reset()">初始化</a>
 			</div>
 			<datalist id="taglist">
 				<option value="波西米亚" />

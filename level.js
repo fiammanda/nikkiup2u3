@@ -1,5 +1,4 @@
 // Ivan's Workshop
-
 var competitionsRaw = {
 	'海边派对的搭配': [0.67, 1.33, 1.0, -1.33, 1.33],
 	'春天在哪里': [0.67, 1.33, 1.33, 1.33, 1.0],
@@ -36,6 +35,14 @@ var tasksRaw = {
 	'爱斯基摩旅游节': [1.13, 1.4, 1.13, 1.13, -1.4],
 	'裤装游行': [1.53, 1.27, 1.27, -1.27, -1.53]
 };
+
+var extraRaw = {
+	'精灵的月下舞会1': [-1.5, -1.2, -1.5, 1.2, -1.2],
+	'精灵的月下舞会2': [-1.1, -1.1, -1.5, -1.5, 1.1],
+	'精灵的月下舞会3': [-0.8, -0.8, -0.6, -0.6, 0.6],
+	'精灵的月下舞会4': [1.5, 1.2, 1.5, 1.2, 1.2],
+	'精灵的月下舞会5': [1.5, -1.2, -1.2, 1.5, 1.3]
+}
 
 // all data are presented in order "simple", "cute", "active", "pure", "cool"
 var levelsRaw = {
@@ -165,22 +172,12 @@ var levelsRaw = {
 	'10-5': [1.67, -1.33, -1.67, -1.33, 1.33],
 	'10-6': [-1.6, 1.9, 1.9, -1.6, 1.6],
 	'10-7': [-1.5, 1.2, 1.2, 1.5, -1.5],
-	'10-8': [1.26 ,-1.00 ,-1.28 ,1.26 ,-1.22],
-	'10-9-1': [-1.23 ,1.51 ,1.48 ,-1.00 ,1.06],
-	'10-9-2': [0.99 ,-1.43 ,-1.45 ,1.00 ,1.02],
-	'10-支1': [1.28 ,1.01 ,1.38 ,0.99 ,1.09],
-	'10-支2': [1.06 ,1.32 ,1.14 ,1.00 ,1.41],
-	'10-支3': [-1.20 ,-1.00 ,-1.30 ,-1.10 ,-1.00]
-};
-
-// all data are presented in order "simple", "cute", "active", "pure", "cool"
-var activitiesRaw = {
-	'1': [-1.2, -1.1, -1.8, 1.2, -0.9],
-	'2': [-1.1, -1.2, -1.7, -1.5, 1.3],
-	'3': [-1.5, -1.7, -1.2, -1.1, 1],
-	'3': [-1.5, -1.7, -1.2, -1.1, 1.0],
-	'4': [1.2, 1.2, 1.7, 1.3, 0.9],
-	'5': [1.3, -1.0, -1.5, 1.7, 1.1],
+	'10-8': [1.67, -1.33, -1.67, 1.6, -1.6],
+	'10-9-1': [-1.9, 2.5, 2.5, -1.9, 1.9],
+	'10-9-2': [1.2, -1.9, -1.9, 1.2, 1.2],
+	'10-支1': [1.7, 1.4, 1.7, 1.4, 1.4],
+	'10-支2': [1.4, 1.7, 1.4, 1.4, 1.7],
+	'10-支3': [-1.4, -1.1, -1.4, -1.1, -1.1]
 };
 
 function tagMatcher(whitelist, clothes) {
@@ -326,6 +323,11 @@ var levelFilters = {
 	'7-支3': noOp(),
 	'7-支4': noOp(),
 	'7-支5': noOp(),
+	'仲夏夜之梦1': noOp(),
+	'仲夏夜之梦2': noOp(),
+	'仲夏夜之梦3': noOp(),
+	'仲夏夜之梦4': noOp(),
+	'仲夏夜之梦5': noOp()
 };
 
 function abstractBonusFactory(note, replace, param, tagWhitelist, nameWhitelist, callback) {
@@ -388,7 +390,7 @@ function swimsuitFactory() {
 }
 
 function specialFactory76A() {
-	return abstractBonusFactory('华丽 成熟 优雅 清纯 清凉 分别按照权重增加', false, 'B, SS, B, C, C', "晚礼服",
+	return abstractBonusFactory('华丽	成熟	优雅	清纯	清凉 分别按照权重增加', false, 'B, SS, B, C, C', "晚礼服",
 			null, function(criteria, clothes) {
 				var total = 0;
 				var byFeature = {};
@@ -408,7 +410,7 @@ function specialFactory76A() {
 }
 
 function specialFactory76B() {
-	return abstractBonusFactory('华丽 成熟 优雅 清纯 清凉 分别按照权重增加', false, 'B, SS, B, C, C', "中式现代",
+	return abstractBonusFactory('华丽	成熟	优雅	清纯	清凉 分别按照权重增加', false, 'B, SS, B, C, C', "中式现代",
 			null, function(criteria, clothes) {
 				var total = 0;
 				var byFeature = {};
@@ -451,29 +453,6 @@ function addBonusInfo(base, weight, tag) {
  *	- Special rules
  */
  var levelBonus = {
-	'1': [addBonusInfo('C', 1, "欧式古典")],
-	'2': [],
-	'3': [addBonusInfo('B', 1, "欧式古典")],
-	'4': [],
-	'5': [addBonusInfo('B', 1, "晚礼服")],
-	'仲夏夜之梦1': [addBonusInfo('S', 1, "童话系")],
-	'仲夏夜之梦2': [replaceBonusInfo('SS', 1, "和风")],
-	'仲夏夜之梦3': [],
-	'仲夏夜之梦4': [replaceBonusInfo('S', 1, "摇滚风")],
-	'仲夏夜之梦5': [replaceBonusInfo('S', 1, "睡衣"), replaceBonusInfo('A', 1, "小动物")],
-	'清秀佳人': [addBonusInfo('A', 1, "中式现代")],
-	'绝色无双': [addBonusInfo('A', 1, "中式现代")],
-	'保育员面试': [addBonusInfo('S', 1, "小动物")],
-	'海边的比基尼对决！': [addBonusInfo('A', 1, "泳装")],
-	'少女的茶会': [addBonusInfo('SS', 1, "洛丽塔")],
-	'摇滚演唱会': [addBonusInfo('S', 1, "摇滚风")],
-	'花田摄影会': [addBonusInfo('A', 1, "碎花")],
-	'牛仔布的逆袭': [addBonusInfo('B', 1, "牛仔布")],
-	'云端和风茶室': [addBonusInfo('S', 1, "和风")],
-	'运动饮料的推广会': [addBonusInfo('S', 1, "运动系")],
-	'睡衣兜风派对': [addBonusInfo('SS', 1, "睡衣"), addBonusInfo('SS', 1, "居家服")],
-	'云端汉服聚会': [addBonusInfo('SS', 1, "中式古典")],
-	'话剧甄选会': [addBonusInfo('SS', 1, "欧式古典")],
 	"1-1": [],
 	"1-2": [],
 	"1-3": [addBonusInfo('B', 0.25, "中式古典")],
@@ -597,65 +576,37 @@ function addBonusInfo(base, weight, tag) {
 	'10-5': [addBonusInfo('B', 1, "晚礼服")],
 	'10-6': [addBonusInfo('S', 1, "民族风")],
 	'10-7': [addBonusInfo('B', 1, "洛丽塔")],
-	'10-8': [addBonusInfo('A', 1, "学院系")],
+	'10-8': [addBonusInfo('SS', 1, "学院系")],
 	'10-9-1': [addBonusInfo('A', 1, "原宿系")],
 	'10-9-2': [],
 	'10-支1': [addBonusInfo('A', 1, "运动系")],
 	'10-支2': [addBonusInfo('A', 1, "碎花")],
 	'10-支3': [addBonusInfo('A', 1, "欧式古典")],
+	'月下舞会3': [addBonusInfo('S', 1, "欧式古典")],
+	'仲夏夜之梦1': [addBonusInfo('S', 1, "童话系")],
+	'仲夏夜之梦2': [replaceBonusInfo('SS', 1, "和风")],
+	'仲夏夜之梦3': [],
+	'仲夏夜之梦4': [replaceBonusInfo('S', 1, "摇滚风")],
+	'仲夏夜之梦5': [replaceBonusInfo('S', 1, "睡衣"), replaceBonusInfo('A', 1, "小动物")],
+	'清秀佳人': [addBonusInfo('A', 1, "中式现代")],
+	'绝色无双': [addBonusInfo('A', 1, "中式现代")],
+	'保育员面试': [addBonusInfo('S', 1, "小动物")],
+	'海边的比基尼对决！': [addBonusInfo('A', 1, "泳装")],
+	'少女的茶会': [addBonusInfo('SS', 1, "洛丽塔")],
+	'摇滚演唱会': [addBonusInfo('S', 1, "摇滚风")],
+	'花田摄影会': [addBonusInfo('A', 1, "碎花")],
+	'牛仔布的逆袭': [addBonusInfo('B', 1, "牛仔布")],
+	'云端和风茶室': [addBonusInfo('S', 1, "和风")],
+	'运动饮料的推广会': [addBonusInfo('S', 1, "运动系")],
+	'睡衣兜风派对': [addBonusInfo('SS', 1, "睡衣"), addBonusInfo('SS', 1, "居家服")],
+	'云端汉服聚会': [addBonusInfo('SS', 1, "中式古典")],
+	'话剧甄选会': [addBonusInfo('SS', 1, "欧式古典")]
  };
 
 var additionalLevelInfo = {
 	"4-2": [swimsuitFactory()],
 	"4-3": [swimsuitFactory()],
 	'7-6': [specialFactory76A(), specialFactory76B()]
-};
-
-
-var addSkillsInfo = {
-	'1-1': [["暖暖的微笑"],["暖暖的微笑","挑剔的目光","灰姑娘时钟","沉睡魔咒"]],
-	'1-2': [["暖暖的微笑"]],
-	'9-1': [["挑剔","沉睡","时钟"],["挑剔","沉睡","时钟"]],
-	'9-2': [["挑剔","沉睡","时钟"],["挑剔","沉睡","时钟"]],
-	'9-3': [["挑剔","免疫","反弹"],["挑剔","免疫","反弹"]],
-	'9-4': [["挑剔","沉睡","反弹"],["挑剔","沉睡","反弹"]],
-	'9-5': [["挑剔","免疫","礼物"],["挑剔","免疫","礼物"]],
-	'9-6-1': [["挑剔","灰姑娘","真爱"],["挑剔","灰姑娘","真爱"]],
-	'9-6-2': [["挑剔","灰姑娘"],["挑剔","灰姑娘"]],
-	'9-7': [["挑剔","沉睡","反弹"],["挑剔","沉睡","反弹"]],
-	'9-8': [["挑剔","沉睡","反弹"],["挑剔","沉睡","反弹"]],
-	'9-9-1': [["挑剔","灰姑娘","免疫"],["挑剔","灰姑娘","免疫"]],
-	'9-9-2': [["挑剔","沉睡","反弹"],["挑剔","沉睡","反弹"]],
-	'9-9-3': [["挑剔","沉睡","反弹"],["挑剔","沉睡","反弹"]],
-	'9-支1': [["挑剔","沉睡","反弹"],["挑剔","沉睡","反弹"]],
-	'9-支2': [["挑剔","免疫","反弹"],["挑剔","免疫","反弹"]],
-	'9-支3': [["挑剔","灰姑娘","沉睡"],["挑剔","灰姑娘","沉睡"]],
-	'运动饮料的推广会': [null,null,["挑剔","灰姑娘","反弹","微笑"]],
-	'裤装游行': [null,null,["沉睡","挑剔","礼物"]],
-	'少女的茶会': [null,null,["沉睡","挑剔","微笑"]],
-	'摇滚演唱会': [null,null,["挑剔","真爱","微笑"]],
-	'花田摄影会': [null,null,["沉睡","挑剔","灰姑娘"]],
-	'话剧甄选会': [null,null,["挑剔","沉睡","灰姑娘"]],
-	'苹果联邦高级成衣展': [null,null,["挑剔","礼物"]],
-	'云端和风茶室': [null,null,["挑剔","沉睡","礼物"]],
-	'牛仔布的逆袭': [null,null,["沉睡","挑剔","礼物"]],
-	'保育员面试': [null,null,["挑剔","反弹","微笑"]],
-	'爱斯基摩旅游节': [null,null,["微笑","挑剔","沉睡","礼物"]],
-	'海边的比基尼对决！': [null,null,["挑剔","反弹"]],
-	'睡衣兜风派对': [null,null,["挑剔","礼物","免疫","反弹"]],
-	'云端汉服聚会': [null,null,["挑剔","反弹"]] 
-};
-
-var addHintInfo = {
-	'9-3': "枫叶套装",
-	'9-5': "游鲤套装 不穿外套",
-	'9-7': "未来套装 不穿外套",
-	'9-9-1': "刺客套装 不穿外套",
-	'10-6': "少女级可用荒原之花 公主级需要做大地图腾",
-	'10-8': "必做学士服 不穿外套",
-	'10-9-1': "上下装/外套只允许魔力（及进化） 前沿少女（及进化） 纱网（及进化）",
-	'10-9-2': "推荐无tag衣服",
-	'2': "排斥刺客 精灵 中国风",
 };
 
 function parseCriteriaList(criteria) {
@@ -696,17 +647,17 @@ function level(name, criteria) {
 
 allThemes = function() {
 	var ret = {};
-	for (var theme in activitiesRaw) {
-		var criteria = activitiesRaw[theme];
-		ret['精灵的月下舞会' + theme] = level(theme, parseCriteriaList(criteria));
+	for (var theme in extraRaw) {
+		var criteria = extraRaw[theme];
+		ret[theme] = level(theme, parseCriteriaList(criteria));
 	}
 	for (var theme in competitionsRaw) {
 		var criteria = competitionsRaw[theme];
-		ret['评选赛：' + theme] = level(theme, parseCriteriaList(criteria));
+		ret['评选：' + theme] = level(theme, parseCriteriaList(criteria));
 	}
 	for (var theme in tasksRaw) {
 		var criteria = tasksRaw[theme];
-		ret['联盟委托：' + theme] = level(theme, parseCriteriaList(criteria));
+		ret['委托：' + theme] = level(theme, parseCriteriaList(criteria));
 	}
 	for (var theme in levelsRaw) {
 		var criteria = levelsRaw[theme];

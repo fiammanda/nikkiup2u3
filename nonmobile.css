@@ -2,23 +2,42 @@ main {
 	margin: 70px auto;
 	width: 1200px;
 }
-header {
-	padding: 28px 0;
+form {
+	margin-top: 0.5em;
 }
-article {
-	margin: 28px 0 -167px auto;
+ul#notice {
+	float: right;
+	margin: 0 0 1em 0;
 	padding: 4px 7px;
-	height: 135px;
+	height: 6em;
 	width: 360px;
 	font-size: 13px;
+	font-weight: 300;
 	border: 1px dashed #768;
 	overflow-y: scroll;
 	cursor: default;
 }
-p {
-	padding: 0 0 0 62px;
-	text-indent: -62px;
+ul#notice li {
 	color: #555;
+	padding: 0 0 0 1em;
+	text-indent: -5px;
+}
+ul#notice li:before {
+	content: "\00bb";
+	display: inline-block;
+	width: 5px;
+}
+article {
+	float: right;
+	clear: right;
+	padding: 4px 7px;
+	height: 9em;
+	width: 360px;
+	font-size: 13px;
+	font-weight: 300;
+	border: 1px dashed #768;
+	overflow-y: scroll;
+	cursor: default;
 }
 h2 {
 	font-weight: lighter;
@@ -30,21 +49,21 @@ a[href]:hover {
 	border-color: #666;
 }
 span#inventoryCount {
-	font-size: 12px;
+	font-family: "Source Han Sans", "Microsoft Yahei";
+	font-weight: 300;
+	font-size: 13px;
 }
 span.count {
 	background: #555;
 	border-radius: 8px;
 	padding: 2px 4px;
 	font-size: 12px;
+	font-weight: 300;
+	font-family: "Source Han Sans", "Microsoft Yahei";
 	color: #fff;
 	vertical-align: 1px;
 	display: inline-block;
 	line-height: 1;
-	font-family: "Microsoft Yahei";
-}
-span#inventoryCount {
-	font-size: 12px;
 }
 label.btn:hover, a.btn:hover {
 	background: #768;
@@ -149,42 +168,50 @@ label.btn:hover, a.btn:hover {
 #clothes .own .item {
 	color: #333;
 }
-#clothes span {
+#clothes .name > span {
 	display: inline-block;
 	width: 10px;
 	height: 10px;
-	line-height: 10px;
-	font-size: 12px;
 	border-radius: 5px;
-	color: rgba(255, 255, 255, 0.75);
 	background: #bbd;
-	transition: color 0.2s, background 0.2s;
+	overflow: hidden;
+	transition: background 0.2s;
 }
-#clothes span.tooltip {
+#clothes .name span.tooltip {
 	cursor: pointer;
 }
-#clothes span.tooltip:hover,
-#clothes .item:hover + span.tooltip {
+#clothes .name span.tooltip span {
+	display: inline-block;
+	width: 14px;
+	font-size: 14px;
+	font-family: "Segoe UI Symbol";
+	line-height: 1;
+	color: rgba(255, 255, 255, 0.75);
+	transition: color 0.2s;
+	position: absolute;
+	margin: -3px 0 0 -7px;
+}
+#clothes .name span.tooltip:hover span,
+#clothes .item:hover + span.tooltip span {
 	color: rgba(255, 255, 255, 1);
 }
-#clothes .deps span.tooltip {
+#clothes .deps > span {
 	background: #dbb;
 }
-#clothes .own span {
+#clothes .own .name > span {
 	background: rgba(50, 100, 250, 0.7);
 }
-#clothes .own .deps span.tooltip {
+#clothes .own .deps > span {
 	background: rgba(250, 50, 50, 0.7);
 }
 #clothes .tooltip:hover:after {
 	content: attr(data-content);
-	margin: -10px 0 0 5px;
+	position: absolute;
+	margin: -8px 0 0 8px;
 	padding: 4px 7px;
 	display: inline-block;
-	position: absolute;
 	opacity: 0;
-	line-height: 21px;
-	font-size: 14px;
+	font-size: 13px;
 	text-align: left;
 	background: rgba(210, 215, 255, 0.75);
 	color: #333;
@@ -200,7 +227,7 @@ label.btn:hover, a.btn:hover {
 	background: rgba(255, 220, 220, 0.75);
 }
 #shoppingCart {
-	margin: 49px 0;
+	margin: 3em 0 4em 0;
 }
 #shoppingCart .score {
 	width: 43px;

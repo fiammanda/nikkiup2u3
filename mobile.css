@@ -9,23 +9,39 @@ main {
 	margin: 1em;
 	line-height: 1.5;
 }
-header, section {
+header {
 	margin: 2em 0 0;
 }
+ul#notice {
+	margin: 2em 0 1em 0;
+	padding: 0 0 0 1em;
+	height: 4.5em;
+	overflow-y: scroll;
+	border-top: 2px solid #769; 
+	border-bottom: 3px double #769; 
+	color: #555;
+}
 article {
-	margin: 2em 0;
+	margin: 1em 0 2em 0;
 	height: 6em;
 	overflow-y: scroll;
 	border-top: 2px solid #769; 
 	border-bottom: 3px double #769; 
 }
 form {
-	padding: 2em 0 0;
+	margin: 2em 0 0;
+}
+time {
+	font-family: "Roboto Mono";
+	font-size: 90%;
+	letter-spacing: -1px;
+	line-height: 1.667;
 }
 p {
 	margin: 0;
 }
 nav {
+	margin-top: -1.667em; 
 }
 nav ul {
 	margin: 0;
@@ -55,6 +71,13 @@ nav ul li.active a {
 	border: 1px solid #658;
 	border-radius: 4px;
 	padding: 0 3px;
+}
+span#inventoryCount {
+	display: inline-block;
+	line-height: 1.111;
+	font-family: "Roboto Mono";
+	font-size: 90%;
+	letter-spacing: -1px;
 }
 input[type="text"] {
 	width: 3em;
@@ -191,7 +214,7 @@ input#tag1, input#tag2 {
 	color: #fff;
 	background: #98a;
 	border-radius: 4px;
-	font-family: "Roboto Mono";
+	font-family: "Roboto Mono", "PingHei";
 	font-size: 90%;
 	line-height: 1.667;
 	letter-spacing: -1px;
@@ -217,6 +240,9 @@ input#tag1, input#tag2 {
 	color: #fff;
 	background: #98a;
 	border-radius: 4px;
+}
+#clothes {
+	margin: 2em 0;
 }
 #clothes .category {
 	display: none;

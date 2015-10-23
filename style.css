@@ -4,7 +4,7 @@ body {
 	color: #333;
 	line-height: 1.5;
 	font-size: 14px;
-	font-family: "PingHei", "Lucida Sans Unicode", "Microsoft Yahei";
+	font-family: "Source Han Sans", "PingHei", "Lucida Sans Unicode", "Microsoft Yahei";
 }
 a {
 	text-decoration: none;
@@ -24,14 +24,14 @@ a[href]:hover {
 }
 h1 {
 	margin-bottom: 0;
-	font-family: "PingHei", "Microsoft Yahei";
-	font-weight: lighter;
+	font-family: "Source Han Sans", "PingHei", "Microsoft Yahei";
+	font-weight: 200;
 }
 h2 {
-	margin: 0 0 40px;
+	margin: 0 0 3em;
 	font-size: 14px;
-	font-family: "PingHei", "Microsoft Yahei";
-	font-weight: normal;
+	font-family: "Source Han Sans", "PingHei", "Microsoft Yahei";
+	font-weight: 400;
 }
 aside {
 	opacity: 0;
@@ -39,12 +39,17 @@ aside {
 	z-index: -1;
 }
 section {
-	margin: 40px 0;
-	clear: both;
+	margin: 0;
+	clear: left;
+	overflow: hidden;
 }
 p {
 	margin: 0;
 	color: #555;
+	display: flex;
+}
+time {
+	margin: 0 0.5em 0 0;
 }
 input[type="checkbox"] {
 	position: relative;
@@ -53,7 +58,7 @@ input[type="checkbox"] {
 textarea, input, select {
 	color: #555;
 	border: 1px solid #768;
-	font-family: "PingHei", "Lucida Sans Unicode", "Microsoft Yahei";
+	font-family: "Source Han Sans", "PingHei", "Lucida Sans Unicode", "Microsoft Yahei";
 	transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 textarea:hover, textarea:focus, input:hover, input:focus, select:hover, select:focus {
@@ -71,7 +76,7 @@ textarea#myClothes {
 	height: 50px;
 	line-height: 1.5;
 	font-size: 12px;
-	font-family: "Lucida Sans Unicode", "Microsoft Yahei";
+	font-weight: 300;
 }
 a#loadInventory {
 	height: 38px;
@@ -81,8 +86,9 @@ a#loadInventory {
 	font-size: 13px;
 }
 .btn-group {
-	clear: both;
-	padding: 0.5em 0;
+	clear: left;
+	overflow: hidden;
+	margin: 0.5em 0;
 }
 .btn-group input[type="radio"], .btn-group input[type="checkbox"] {
 	display: none;
@@ -134,7 +140,6 @@ input[type="text"] {
 	height: 14px;
 	line-height: 14px;
 	font-size: 13px;
-	font-family: "Lucida Sans Unicode", "Microsoft Yahei";
 	border: 1px solid #768;
 }
 input#tag1, input#tag2 {
