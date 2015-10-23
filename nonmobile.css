@@ -17,16 +17,6 @@ ul#notice {
 	overflow-y: scroll;
 	cursor: default;
 }
-ul#notice li {
-	color: #555;
-	padding: 0 0 0 1em;
-	text-indent: -5px;
-}
-ul#notice li:before {
-	content: "\00bb";
-	display: inline-block;
-	width: 5px;
-}
 article {
 	float: right;
 	clear: right;

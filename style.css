@@ -43,6 +43,19 @@ section {
 	clear: left;
 	overflow: hidden;
 }
+ul#notice {
+	color: #555;
+	list-style-type: none;
+}
+ul#notice li {
+	padding: 0 0 0 1em;
+	text-indent: -5px;
+}
+ul#notice li:before {
+	content: "\00bb";
+	display: inline-block;
+	width: 5px;
+}
 p {
 	margin: 0;
 	color: #555;

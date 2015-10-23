@@ -13,22 +13,17 @@ header {
 	margin: 2em 0 0;
 }
 ul#notice {
-	list-style: outside;
 	margin: 2em 0 0 0;
 	padding: 0 0 0 0.5em;
 	height: 6em;
 	overflow-y: scroll;
 	border-top: 3px double #769; 
-	color: #555;
-}
-ul#notice li {
-	margin: 0 0 0 0.5em;
 }
 article {
 	margin: 0 0 2em 0;
-	height: 9em;
+	height: 6em;
 	overflow-y: scroll;
-	border-top: 1px dotted #769; 
+	border-top: 1px dashed #769; 
 	border-bottom: 3px double #769; 
 }
 form {
