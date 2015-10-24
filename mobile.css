@@ -14,19 +14,19 @@ header {
 }
 ul#notice {
 	margin: 2em 0 0 0;
-	padding: 0 0 0 1em;
+	padding: 0 0 0 1.5em;
 	height: 6em;
 	overflow-y: scroll;
 	border-top: 3px double #769; 
 }
 ul#notice li {
-	text-indent: -1em;
+	text-indent: -0.5em;
 }
 ul#notice li:before {
 	content: "\00bb";
 	display: inline-block;
 	text-align: center;
-	width: 1em;
+	width: 0.5em;
 }
 article {
 	margin: 0 0 2em 0;
@@ -171,7 +171,7 @@ input#tag1, input#tag2 {
 }
 .score a {
 	display: inline-block;
-	padding: 0 3px 0 2px;
+	padding: 0 3px;
 	color: #658;
 	border: 1px solid #769;
 	border-radius: 4px;
