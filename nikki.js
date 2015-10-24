@@ -600,7 +600,7 @@ function changeTheme() {
 	var theme = $('#theme').val();
 	if (theme == 'default') {
 		$('#styleFilter input:radio').prop('checked', false).parent('.checked').removeClass('checked');
-		$('#styleFilter input:text').val("1");
+		$('#styleFilter input:text').val('1');
 		clearTag('tag1');
 		clearTag('tag2');
 		onChangeCriteria();
@@ -678,7 +678,10 @@ function updateSize(mine) {
 
 function reset() {
 	$('#theme').val('default');
+	$('#styleFilter .checked').removeClass('checked');
 	changeTheme();
+	onChangeCriteria();
+	clearShoppingCart();
 }
 
 function init() {
@@ -689,7 +692,7 @@ function init() {
 	updateSize(mine);
 	switchCate(category[0]);
 	$('#styleFilter input:radio').prop('checked', false);
-	$('#styleFilter input:text').val("1");
+	$('#styleFilter input:text').val('1');
 	clearTag('tag1');
 	clearTag('tag2');
 	changeMode(false);

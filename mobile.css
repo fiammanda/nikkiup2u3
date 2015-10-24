@@ -4,17 +4,17 @@
 	font-weight: 400;
 	src: local("Roboto Mono"), local("RobotoMono-Regular"), url(robotomono.woff) format("woff");
 }
-
 main {
 	margin: 1em;
 	line-height: 1.5;
+	background: #fff;
 }
 header {
 	margin: 2em 0 0;
 }
 ul#notice {
 	margin: 2em 0 0 0;
-	padding: 0;
+	padding: 0 0 0 1em;
 	height: 6em;
 	overflow-y: scroll;
 	border-top: 3px double #769; 
