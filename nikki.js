@@ -677,11 +677,8 @@ function updateSize(mine) {
 }
 
 function reset() {
-	clearShoppingCart();
-	$('#styleFilter input:radio').prop('checked', false).parent('.checked').removeClass('checked');
 	$('#theme').val('default');
 	changeTheme();
-	onChangeCriteria();
 }
 
 function init() {

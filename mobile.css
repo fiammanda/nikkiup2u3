@@ -1,8 +1,11 @@
 @font-face {
-	font-family: "Roboto Mono";
+	font-family: 'Roboto Mono';
 	font-style: normal;
 	font-weight: 400;
-	src: local("Roboto Mono"), local("RobotoMono-Regular"), url(robotomono.woff) format("woff");
+	src: local('Roboto Mono'), local('RobotoMono-Regular'), url('robotomono.woff') format('woff');
+}
+body {
+	background: #fff;
 }
 main {
 	margin: 1em;
@@ -14,7 +17,7 @@ header {
 }
 ul#notice {
 	margin: 2em 0 0 0;
-	padding: 0 0 0 1.5em;
+	padding: 0 0 0 1em;
 	height: 6em;
 	overflow-y: scroll;
 	border-top: 3px double #769; 
@@ -23,10 +26,16 @@ ul#notice li {
 	text-indent: -0.5em;
 }
 ul#notice li:before {
-	content: "\00bb";
+	content: '\00bb';
 	display: inline-block;
 	text-align: center;
 	width: 0.5em;
+}
+a#reset {
+	display: none;
+}
+a#clearCart {
+	border-radius: 0 4px 4px 0;
 }
 article {
 	margin: 0 0 2em 0;
@@ -39,7 +48,7 @@ form {
 	margin: 2em 0 0;
 }
 time {
-	font-family: "Roboto Mono";
+	font-family: 'Roboto Mono';
 	font-size: 90%;
 	letter-spacing: -1px;
 	line-height: 1.667;
@@ -82,11 +91,11 @@ nav ul li.active a {
 span#inventoryCount {
 	display: inline-block;
 	line-height: 1.111;
-	font-family: "Roboto Mono";
+	font-family: 'Roboto Mono';
 	font-size: 90%;
 	letter-spacing: -1px;
 }
-input[type="text"] {
+input[type='text'] {
 	width: 3em;
 }
 input#tag1, input#tag2 {
@@ -157,7 +166,7 @@ input#tag1, input#tag2 {
 }
 .score, .id, .star, .tooltip {
 	padding: 1px 4px 1px 3px;
-	font-family: "Roboto Mono", "PingHei";
+	font-family: 'Roboto Mono', 'PingHei';
 	font-size: 90%;
 	line-height: 1.667;
 	letter-spacing: -1px;
@@ -221,7 +230,7 @@ input#tag1, input#tag2 {
 	color: #fff;
 	background: #98a;
 	border-radius: 4px;
-	font-family: "Roboto Mono", "PingHei";
+	font-family: 'Roboto Mono', 'PingHei';
 	font-size: 90%;
 	line-height: 1.667;
 	letter-spacing: -1px;
