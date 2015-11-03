@@ -51,7 +51,7 @@ Clothes = function(csv) {
 			for (var sourceType in this.deps) {
 				for (var i in this.deps[sourceType]) {
 					var c = this.deps[sourceType][i];
-					ret += indent + '[' + sourceType + '][' + c.type.mainType.substring(0, 2) + ']' + c.name + (c.own ? '' : ' ★') + '&#xA;';
+					ret += indent + '[' + sourceType + '][' + c.type.mainType.substring(0, 2) + ']' + c.name + (c.own ? '' : ' &#8709;') + '&#xA;';
 					ret += c.getDeps(indent + "　");
 				}
 			};

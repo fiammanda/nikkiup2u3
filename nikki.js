@@ -100,16 +100,14 @@ function clickableTd(piece) {
 	var end = '';
 	end += own ? ' own' : '';
 	if (deps && deps.length > 0) {
-		tooltip = ' class="tooltip" data-content="' + deps + '" onClick="toggleTooltip.call(this)"><span>★</span>';
-		if (deps.indexOf('★') > 0) {
+		tooltip = ' class="tooltip" data-content="' + deps + '" onClick="toggleTooltip.call(this)"';
+		if (deps.indexOf('&#8709;') > 0) {
 			cls += ' deps';
 		}
-	} else {
-		tooltip = '>';
 	}
 	ret += end + '">';
 	ret += td('<a onClick="addShoppingCart(\'' + piece.type.mainType + '\',\'' + piece.id + '\')">' + piece.tmpScore + '</a>', ' score', '');
-	ret += '<div id="clickable-' + type + id + '" class="' + cls + '"><a class="item" ' + 'onClick="toggleInventory(\'' + type + '\',\'' + id + '\')">' + name + '</a><span' + tooltip + '</span></div>';
+	ret += '<div id="clickable-' + type + id + '" class="' + cls + '"><a class="item" ' + 'onClick="toggleInventory(\'' + type + '\',\'' + id + '\')">' + name + '</a><span' + tooltip + '> </span></div>';
 	return ret;
 }
 

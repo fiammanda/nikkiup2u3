@@ -194,6 +194,9 @@ input#tag1, input#tag2 {
 	border-radius: 4px;
 	transition: background 0.2s;
 }
+.tooltip:before {
+	content: '★';
+}
 .tooltip.show {
 	background: #48f;
 }

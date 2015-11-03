@@ -22,7 +22,7 @@ ul#notice li {
 	text-indent: -5px;
 }
 ul#notice li:before {
-	content: "\00bb";
+	content: '\00bb';
 	display: inline-block;
 	width: 5px;
 }
@@ -71,7 +71,7 @@ label.btn:hover, a.btn:hover {
 }
 .table {
 	display: table;
-	border-collapse:collapse;
+	border-collapse: collapse;
 	line-height: 1.5;
 	text-align: center;
 	background: #fff;
@@ -117,7 +117,7 @@ label.btn:hover, a.btn:hover {
 	font-size: 13px;
 }
 .tbody .tr:hover {
-	border-bottom: 1px solid #999;
+	border-color: #999 !important;
 }
 .score {
 	padding: 4px 7px;
@@ -150,79 +150,82 @@ label.btn:hover, a.btn:hover {
 #clothes .table {
 	margin: 0 auto;
 }
+#clothes .tbody .tr {
+	border-bottom: 1px solid #fff;
+}
 #clothes .tbody .tr:nth-child(2n+1) {
 	background: #f3f0f6;
+	border-bottom: 1px solid #f3f0f6;
 }
-#clothes .tbody .tr {
+#clothes .tbody .tr:not(.own) .td:not(.rating), #clothes .tbody .tr:not(.own) .score a {
 	color: #777;
 }
-#clothes .tbody .tr.own {
-	color: #333;
-}
-#clothes .item {
+#clothes .name .item {
 	padding: 0 4px 0 0;
 	line-height: 1;
+}
+#clothes .tbody .tr:not(.own) .item {
 	color: #777;
 }
-#clothes .own .item {
-	color: #333;
+#clothes .item:hover {
+	color: #333 !important;
 }
-#clothes .name > span {
+#clothes .name span {
 	display: inline-block;
-	width: 10px;
-	height: 10px;
-	border-radius: 5px;
-	background: #bbd;
-	overflow: hidden;
-	transition: background 0.2s;
+	color: #bce;
+	transition: color 0.2s;
 }
 #clothes .name span.tooltip {
 	cursor: pointer;
 }
-#clothes .name span.tooltip span {
-	display: inline-block;
-	width: 14px;
-	font-size: 14px;
+#clothes .name span.tooltip:hover,
+#clothes .name .item:hover + span {
+	color: rgba(50, 100, 250, 0.6);
+}
+#clothes .own span {
+	color: rgba(50, 100, 250, 0.6);
+}
+#clothes .own span.tooltip:hover,
+#clothes .own .item:hover + span {
+	color: rgba(50, 100, 250, 0.9);
+}
+#clothes .deps span {
+	color: #ebb;
+}
+#clothes .deps span.tooltip:hover,
+#clothes .deps .item:hover + span {
+	color: rgba(250, 50, 50, 0.6);
+}
+#clothes .own .deps span {
+	color: rgba(250, 50, 50, 0.6);
+}
+#clothes .own .deps span.tooltip:hover,
+#clothes .own .deps .item:hover + span {
+	color: rgba(250, 50, 50, 0.9);
+}
+#clothes .name span.tooltip:before {
+	content: '\272a';
 	font-family: "Segoe UI Symbol";
-	line-height: 1;
-	color: rgba(255, 255, 255, 0.75);
-	transition: color 0.2s;
-	position: absolute;
-	margin: -3px 0 0 -7px;
 }
-#clothes .name span.tooltip:hover span,
-#clothes .item:hover + span.tooltip span {
-	color: rgba(255, 255, 255, 1);
-}
-#clothes .deps > span {
-	background: #dbb;
-}
-#clothes .own .name > span {
-	background: rgba(50, 100, 250, 0.7);
-}
-#clothes .own .deps > span {
-	background: rgba(250, 50, 50, 0.7);
+#clothes .name span:not(.tooltip):before {
+	content: '\25cf';
+	font-family: "Segoe UI Symbol";
 }
 #clothes .tooltip:hover:after {
 	content: attr(data-content);
 	position: absolute;
-	margin: -8px 0 0 8px;
-	padding: 4px 7px;
+	margin: -4px 0 0 8px;
+	padding: 5px 10px 4px 8px;
 	display: inline-block;
 	opacity: 0;
 	font-size: 13px;
 	text-align: left;
 	background: rgba(210, 215, 255, 0.75);
 	color: #333;
-	z-index: 1;
+	z-index: 9;
 	opacity: 1;
 }
-#clothes .tooltip:empty:hover:after {
-	margin: 0;
-	padding: 0;
-	opacity: 0;
-}
-#clothes .name.deps .tooltip:hover:after {
+#clothes .deps .tooltip:hover:after {
 	background: rgba(255, 220, 220, 0.75);
 }
 #shoppingCart {
@@ -242,7 +245,7 @@ label.btn:hover, a.btn:hover {
 	display: block;
 }
 #shoppingCart .tr:nth-last-child(2) {
-	border-color: #777;
+	border-bottom: 1px solid #777;
 }
 nav ul {
 	margin: 0 7px;

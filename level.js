@@ -1,4 +1,6 @@
 // Ivan's Workshop
+// all data are presented in order "simple", "cute", "active", "pure", "cool"
+
 var competitionsRaw = {
 	'海边派对的搭配': [0.67, 1.33, 1.0, -1.33, 1.33],
 	'春天在哪里': [0.67, 1.33, 1.33, 1.33, 1.0],
@@ -36,15 +38,6 @@ var tasksRaw = {
 	'裤装游行': [1.53, 1.27, 1.27, -1.27, -1.53]
 };
 
-var extraRaw = {
-	'精灵的月下舞会1': [-1.5, -1.2, -1.5, 1.2, -1.2],
-	'精灵的月下舞会2': [-1.1, -1.1, -1.5, -1.5, 1.1],
-	'精灵的月下舞会3': [-0.8, -0.8, -0.6, -0.6, 0.6],
-	'精灵的月下舞会4': [1.5, 1.2, 1.5, 1.2, 1.2],
-	'精灵的月下舞会5': [1.5, -1.2, -1.2, 1.5, 1.3]
-}
-
-// all data are presented in order "simple", "cute", "active", "pure", "cool"
 var levelsRaw = {
 	'1-1': [1, 2, 3, 2, 1],
 	'1-2': [3, 1.5, -3, 3, -1],
@@ -410,7 +403,7 @@ function specialFactory76A() {
 }
 
 function specialFactory76B() {
-	return abstractBonusFactory('华丽	成熟	优雅	清纯	清凉 分别按照权重增加', false, 'B, SS, B, C, C', "中式现代",
+	return abstractBonusFactory('华丽 成熟 优雅 清纯 清凉 分别按照权重增加', false, 'B, SS, B, C, C', "中式现代",
 			null, function(criteria, clothes) {
 				var total = 0;
 				var byFeature = {};
@@ -582,7 +575,6 @@ function addBonusInfo(base, weight, tag) {
 	'10-支1': [addBonusInfo('A', 1, "运动系")],
 	'10-支2': [addBonusInfo('A', 1, "碎花")],
 	'10-支3': [addBonusInfo('A', 1, "欧式古典")],
-	'月下舞会3': [addBonusInfo('S', 1, "欧式古典")],
 	'仲夏夜之梦1': [addBonusInfo('S', 1, "童话系")],
 	'仲夏夜之梦2': [replaceBonusInfo('SS', 1, "和风")],
 	'仲夏夜之梦3': [],
@@ -647,10 +639,6 @@ function level(name, criteria) {
 
 allThemes = function() {
 	var ret = {};
-	for (var theme in extraRaw) {
-		var criteria = extraRaw[theme];
-		ret[theme] = level(theme, parseCriteriaList(criteria));
-	}
 	for (var theme in competitionsRaw) {
 		var criteria = competitionsRaw[theme];
 		ret['评选：' + theme] = level(theme, parseCriteriaList(criteria));
