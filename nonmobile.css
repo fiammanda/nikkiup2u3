@@ -288,9 +288,9 @@ nav ul li.active a {
 }
 .subcategories {
 	margin: -1px 0 0 0;
-	padding: 14px 67px 7px;
+	padding: 14px 60px 7px;
 	height: 46px;
-	width: 1059px;
+	width: 1073px;
 	border: 1px solid #777;
 	border-bottom: 0;
 	border-radius: 7px 7px 0 0;
@@ -305,7 +305,11 @@ nav ul li.active a {
 }
 .subcategory {
 	display: inline-block;
-	width: 110px;
+	width: 7.5em;
+}
+#category-饰品 .subcategory:first-child,
+#category-饰品 .subcategory:nth-child(11) {
+	width: 6em;
 }
 .nosubcategory {
 	color: #777;
