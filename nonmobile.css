@@ -240,9 +240,7 @@ label.btn:hover, a.btn:hover {
 #shoppingCart .totalScore {
 	font-size: 13px;
 	letter-spacing: -1px;
-}
-#shoppingCart .td span {
-	display: block;
+	line-height: 2;
 }
 #shoppingCart .tr:nth-last-child(2) {
 	border-bottom: 1px solid #777;
@@ -308,7 +306,12 @@ nav ul li.active a {
 	width: 7.5em;
 }
 #category-饰品 .subcategory:first-child,
+#category-饰品 .subcategory:nth-child(2),
+#category-饰品 .subcategory:nth-child(3),
 #category-饰品 .subcategory:nth-child(11) {
+	width: 4.92em;
+}
+#category-饰品 .subcategory:nth-child(21) {
 	width: 6em;
 }
 .nosubcategory {

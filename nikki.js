@@ -170,7 +170,7 @@ function rowTtlScr(piece, isShoppingCart) {
 	ret += td(render(csv[11]), renderCls(csv[11]), ' data-tooltip="凉"');
 	ret += td(render(csv[12]), renderCls(csv[12]), ' data-tooltip="暖"');
 	ret += td('', ' void', '');
-	ret += td('', ' void', '');
+	ret += td('<a onclick="clearShoppingCart()">清 空</a>', ' clearCart', '');
 	return tr(ret);
 }
 
@@ -184,6 +184,8 @@ function render(piece) {
 function renderCls(piece) {
 	if (piece.length == '0') {
 		return ' void';
+	} else if (piece.charAt(0) == '-') {
+		return ' negative';
 	} else if (piece == 'SS' || piece == 'S' || piece == 'A' || piece == 'B' || piece == 'C') {
 		return ' rating ' + piece;
 	} else {
@@ -207,7 +209,7 @@ function drawTable(data, div, isShoppingCart) {
 	if ($('#' + div + ' .table').length == 0) {
 		$('#' + div).html('<div class="table"><div class="thead"></div><div class="tbody"></div></div>');
 	}
-	$('#' + div + ' .table .thead').html(thead(!isFilteringMode, isShoppingCart));
+	$('#' + div + ' .table .thead').html(thead(true, isShoppingCart));
 	$('#' + div + ' .table .tbody').html(list(data, isShoppingCart));
 }
 
@@ -231,9 +233,7 @@ function onChangeCriteria() {
 	if (global.additionalBonus && global.additionalBonus.length > 0) {
 		criteria.bonus = global.additionalBonus;
 	}
-	if (!isFilteringMode){
-		chooseAccessories(criteria);
-	}
+	chooseAccessories(criteria);
 	drawLevelInfo();
 	refreshTable();
 }
@@ -277,7 +277,7 @@ function bonusToTag(idx, info) {
 var uiFilter = {};
 function onChangeUiFilter() {
 	uiFilter = {};
-	$('input[name=inventory]:checked').each(function() {
+	$('#displayFilter input:checked').each(function() {
 		uiFilter[$(this).val()] = true;
 	});
 	if (currentCategory) {
@@ -419,13 +419,11 @@ function filterTopAccessories(filters) {
 	var result = {};
 	for (var i in clothes) {
 		if (matches(clothes[i], {}, filters)) {
-			if (!isFilteringMode) {
-				clothes[i].calc(filters);
-				if (!result[clothes[i].type.type]) {
-					result[clothes[i].type.type] = clothes[i];
-				} else if (clothes[i].tmpScore > result[clothes[i].type.type].tmpScore) {
-					result[clothes[i].type.type] = clothes[i];
-				}
+			clothes[i].calc(filters);
+			if (!result[clothes[i].type.type]) {
+				result[clothes[i].type.type] = clothes[i];
+			} else if (clothes[i].tmpScore > result[clothes[i].type.type].tmpScore) {
+				result[clothes[i].type.type] = clothes[i];
 			}
 		}
 	}
@@ -451,68 +449,90 @@ function filterTopClothes(filters) {
 	filters['own'] = true;
 	//var accCate = CATEGORY_HIERARCHY['饰品'];
 	for (var i in CATEGORY_HIERARCHY) {
-	if(i == "袜子"){
-		filters[CATEGORY_HIERARCHY[i][0]] = true;	
-		filters[CATEGORY_HIERARCHY[i][1]] = true;	
-	}
-	if(i != "饰品"){
-		filters[CATEGORY_HIERARCHY[i]] = true;	
-	}
+		if(i == "袜子"){
+			filters[CATEGORY_HIERARCHY[i][0]] = true;
+			filters[CATEGORY_HIERARCHY[i][1]] = true;
+		}
+		if(i != "饰品"){
+			filters[CATEGORY_HIERARCHY[i]] = true;
+		}
 	}
 	var result = {};
 	for (var i in clothes) {
 		if (matches(clothes[i], {}, filters)) {
-			if (!isFilteringMode) {
-				clothes[i].calc(filters);
-				if (!result[clothes[i].type.type]) {
-					result[clothes[i].type.type] = clothes[i];
-				} else if (clothes[i].tmpScore > result[clothes[i].type.type].tmpScore) {
-					result[clothes[i].type.type] = clothes[i];
-				}
+			clothes[i].calc(filters);
+			if (!result[clothes[i].type.type]) {
+				result[clothes[i].type.type] = clothes[i];
+			} else if (clothes[i].tmpScore > result[clothes[i].type.type].tmpScore) {
+				result[clothes[i].type.type] = clothes[i];
 			}
+		}
+	}
+	if(result["上装"] && result["下装"] && result["连衣裙"]){
+		if(result["上装"].tmpScore + result["下装"].tmpScore > result["连衣裙"].tmpScore){
+			delete result["连衣裙"];
+		}
+		else{
+			delete result["上装"];
+			delete result["下装"];
 		}
 	}
 	return result;
 }
 
 function filtering(criteria, filters) {
-	var result = [];
+	var result = [], result2 = [];
+
 	for (var i in clothes) {
 		if (matches(clothes[i], criteria, filters)) {
 			clothes[i].calc(criteria);
 			result.push(clothes[i]);
 		}
 	}
-	if (isFilteringMode || $('#theme').val() == 'default') {
-		result.sort(byId);
+
+	var haveCriteria = false;
+	for (var prop in criteria) {
+		if (criteria[prop] != 0) {
+			haveCriteria = true;
+		}
+	}
+	if (haveCriteria) {
+		result.sort(byCategoryAndScore);
 	} else {
-		result.sort(byCategoryAndScore);		
-	} 
+		result.sort(byId);
+	}
+
+	if (filters.showtop) {
+		var size = 20;
+		if (result[0].type.mainType == '袜子') {
+			size = 10;
+		}
+		if (result[0].type.mainType == '饰品') {
+			size = 5;
+		}
+		var tsize = size;
+		for (var i in result) {
+			if (i > 0 && result[i].type.type != result[i - 1].type.type) {
+				tsize = size;
+			}
+			if (tsize > 0) {
+				result2.push(result[i]);
+			}
+			tsize--;
+		}
+		if (filters.sortbyscore) {
+			result2.sort(byScore);
+		}
+		else {
+			result.sort(byCategoryAndScore);
+		}
+		return result2;
+	}
+
 	return result;
 }
 
 function matches(c, criteria, filters) {
-	// only filter by feature when filtering
-	if (isFilteringMode) {
-		for (var i in FEATURES) {
-			var f = FEATURES[i];
-			if (criteria[f] && criteria[f] * c[f][2] < 0) {
-				return false;
-			}
-		}
-	}
-	if (isFilteringMode && criteria.bonus) {
-		var matchedTag = false;
-		for (var i in criteria.bonus) {
-			if (tagMatcher(criteria.bonus[i].tagWhitelist, c)) {
-				matchedTag = true;
-				break;
-			}
-		}
-		if (!matchedTag) {
-			return false;
-		}
-	}
 	return ((c.own && filters.own) || (!c.own && filters.missing)) && filters[c.type.type];
 }
 
@@ -570,20 +590,6 @@ function switchCate(c) {
 	$("#" + c).addClass("active");
 	$("#category-" + c).addClass("active");
 	onChangeUiFilter();
-}
-
-var isFilteringMode = true;
-function changeMode(isFiltering) {
-	for (var i in FEATURES) {
-		var f = FEATURES[i];
-		if (isFiltering) {
-			$('#' + f + 'WeightContainer').hide();
-		} else {
-			$('#' + f + 'WeightContainer').show();
-		}
-	}
-	isFilteringMode = isFiltering;
-	onChangeCriteria();
 }
 
 function changeFilter() {
@@ -686,18 +692,20 @@ function init() {
 	drawTheme();
 	updateSize(mine);
 	switchCate(category[0]);
+	$('#displayFilter input').change(function () {
+		onChangeUiFilter();
+	});
 	$('#styleFilter input:radio').prop('checked', false);
 	$('#styleFilter input:text').val('1');
 	clearTag('tag1');
 	clearTag('tag2');
-	changeMode(false);
 	clearShoppingCart();
 //	$('html, body').scrollTop('0');
 }
 
 $(document).ready(function() {
 	$(window).scroll(function() {
-		if ( $('html, body').scrollTop() > $('#clothes .truenav').offset().top ) {
+		if ( $(window).scrollTop() > $('#clothes .truenav').offset().top ) {
 			$('#clothes .nav').addClass('fix');
 		} else {
 			$('#clothes .nav').removeClass('fix');

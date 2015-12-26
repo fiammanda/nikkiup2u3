@@ -8,7 +8,7 @@ var global = {
 
 // parses a csv row into object
 // Clothes: name, type, id, stars, simple, gorgeous, active, elegant, cute, mature, pure, sexy, cool, warm，extra
-//          0     1     2   3      4         5       6        7       8       9     10    11    12    13    14
+//          0     1     2   3      4       5         6       7        8     9       10    11    12    13    14
 
 Clothes = function(csv) {
 	var theType = typeInfo[csv[1]];
@@ -339,7 +339,7 @@ function fakeClothes(cart) {
 }
 
 function scoreWithBonusTd(score, bonus) {
-	return score + '<span>+' + bonus + '</span>';
+	return score + bonus + '';
 }
 
 function realRating(a, b, type) {

@@ -31,6 +31,7 @@
 			<li>设计图数据以实际为准（材料登记为染色/进化后）</li>
 		</ul>
 		<article id="update">
+			<p><time>15.12.26</time> <span>更新圣诞活动等部分服装条目</span></p>
 			<p><time>15.12.09</time> <span>更新满天繁星活动等部分服装条目</span></p>
 			<p><time>15.12.06</time> <span>更新暖暖生日赠送等部分服装条目，修正特殊类饰品子类别</span></p>
 			<p><time>15.11.28</time> <span>更新联盟委托关卡及委托兑换获得等部分服装条目</span></p>
@@ -131,7 +132,7 @@
 						<label class="btn checked">
 							<input type="radio" name="tag2method" value="add" onClick="changeFilter()" checked/>加分
 						</label>
-						<label class="btn">					
+						<label class="btn">
 							<input type="radio" name="tag2method" value="replace" onClick="changeFilter()" />替换
 						</label>
 						<select id="tag2base" onChange="changeFilter()" class="btn">
@@ -141,15 +142,20 @@
 					</div>
 				</div>
 			</div>
-			<div id="ownFilter" class="btn-group">
+			<div id="displayFilter" class="btn-group">
 				<label class="btn">
-					<input type="checkbox" name="inventory" value="own" onClick="onChangeUiFilter()" checked />拥有
+					<input type="checkbox" value="own" checked />拥有
 					<span id="inventoryCount"></span>
 				</label>
-				<label class="btn">					
-					 <input type="checkbox" name="inventory" value="missing" onClick="onChangeUiFilter()" checked />没有
+				<label class="btn">
+					 <input type="checkbox" value="missing" checked />没有
 				</label>
-				<a id="clearCart" class="btn" onclick="clearShoppingCart()">清空</a>
+				<label class="btn">
+					 <input type="checkbox" value="showtop" />精简
+				</label>
+				<label class="btn">
+					 <input type="checkbox" value="sortbyscore" />完全分数排序
+				</label>
 				<a id="reset" class="btn" onclick="reset()">初始化</a>
 			</div>
 			<datalist id="taglist">
